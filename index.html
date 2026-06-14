@@ -152,6 +152,89 @@ footer .flor.tl{top:-20px;left:-50px}footer .flor.br{bottom:-30px;right:-46px;tr
 .fscript{font-family:'Pinyon Script',cursive;color:var(--goldlt);font-size:2.05rem;line-height:1.1;text-align:right}
 .fbar{border-top:1px solid #335a47;padding:14px 40px;display:flex;justify-content:space-between;font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.12em;font-size:.6rem;color:#9db3a6;position:relative;z-index:2}
 svg{display:block}
+
+/* ============ MOBILE ============ */
+@media (max-width:780px){
+ .wrap{padding:0 18px}
+ h2.sec,.about h2{font-size:1.85rem}
+ .sectitle{gap:12px}
+ .sectitle::before,.sectitle::after{width:30px}
+
+ /* header */
+ header .hd{padding:11px 16px}
+ nav{gap:0}
+ nav a{display:none}
+ nav a.btn{display:inline-flex;padding:.6em 1.05em!important;font-size:.64rem}
+ .logo .lg{font-size:1.6rem}
+ .logo .sm{font-size:.82rem}
+ .logo .tag{letter-spacing:.26em}
+
+ /* hero */
+ .hero .wrap{grid-template-columns:1fr;gap:26px;padding-top:26px;padding-bottom:32px}
+ .hcopy{text-align:center}
+ .hcopy .spark{font-size:3.7rem}
+ .hcopy .yr{font-size:2.35rem}
+ .hcopy p.lead{font-size:.95rem;margin:14px auto 0}
+ .divider{margin:18px auto 16px}
+ .dates{justify-content:center;gap:14px 22px}
+ .dt{text-align:left}
+ .flor{width:138px;opacity:.78}
+ .flor.tr{top:-12px;right:-20px}
+ .flor.bl{display:none}
+
+ /* countdown */
+ .cd .wrap{grid-template-columns:1fr;gap:18px;padding:26px 18px;justify-items:center;text-align:center}
+ .cd .lt p{max-width:300px;margin:0 auto}
+ .timer{gap:9px}
+ .tb{width:64px;padding:10px 0}
+ .tb .n{font-size:1.7rem}
+ .colon{font-size:1.3rem}
+
+ /* featured speakers -> 2 across */
+ .carou{margin-top:24px}
+ .track{flex-wrap:wrap;gap:20px 14px;overflow:visible;padding:0}
+ .spk{flex:0 0 calc((100% - 14px)/2)}
+ .spk .nm{font-size:1.22rem;padding-top:12px}
+ .arw{display:none}
+ .feat{padding:40px 0 36px}
+
+ /* about */
+ .about .wrap{grid-template-columns:1fr;gap:26px;padding:42px 18px}
+ .about .flor{display:none}
+ .about p,.quote p{max-width:none}
+ .infocard{padding:24px 22px 22px}
+
+ /* tickets -> intro full + cards 2x2 */
+ .tix{padding:40px 0 42px}
+ .tixgrid{grid-template-columns:1fr 1fr;gap:13px}
+ .tixintro{grid-column:1 / -1;text-align:center}
+ .tcard p{min-height:0}
+
+ /* past -> 2 across */
+ .pastrack{flex-wrap:wrap;gap:12px;overflow:visible}
+ .pcard{flex:0 0 calc((100% - 12px)/2)}
+
+ /* testimonials -> 1 col */
+ .tst{padding:28px 0 48px}
+ .tgrid{grid-template-columns:1fr;gap:14px}
+ .tst .flor{display:none}
+
+ /* footer -> 2 col */
+ .fgrid{grid-template-columns:1fr 1fr;gap:22px 24px;padding:36px 18px 16px}
+ .flogo{grid-column:1 / -1}
+ .fgrid>div:last-child{justify-content:flex-start!important;grid-column:1 / -1}
+ .fscript{text-align:left;font-size:1.7rem}
+ footer .flor{display:none}
+ .fbar{flex-direction:column;gap:5px;text-align:center;padding:14px 18px}
+}
+@media (max-width:410px){
+ .hcopy .spark{font-size:3.2rem}
+ .hcopy .yr{font-size:2.05rem}
+ .tb{width:56px}
+ .timer{gap:6px}
+ .colon{font-size:1.1rem}
+ .spk .nm{font-size:1.12rem}
+}
 </style></head>
 <body>
 <!-- HEADER -->
