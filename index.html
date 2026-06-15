@@ -4,8 +4,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Pinyon+Script&family=Jost:wght@400;500;600;700&family=Mulish:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
- --cream:#FBF6EC; --cream2:#FDFAF3; --gold:#C29A3B; --goldlt:#D8B458; --green:#1E4D3A; --green2:#2C5E46;
- --berry:#9E2150; --berrylt:#C2426E; --blush:#F4DDE2; --pink:#D9709A; --ink:#46433c; --line:#E6D9C3;
+ --cream:#F3EDDD; --cream2:#FAF6EA; --gold:#91935C; --goldlt:#CFC97A; --green:#156B6F; --green2:#3C7C74; --greendk:#025260; --forest:#4D785C;
+ --berry:#9B1762; --berrylt:#B83A7E; --plum:#61113E; --blush:#EFD3D4; --blush2:#E3BCBF; --pink:#E3BCBF; --olive:#91935C; --mint:#8ACCAF; --sage:#8AB78A; --orange:#E19256; --ink:#3a4a42; --line:#E2D8C2;
  --cdn:'https://images.squarespace-cdn.com/content/v1/66918331110d39781bf46716/';
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -33,14 +33,14 @@ header{position:sticky;top:0;z-index:50;background:var(--cream2);border-bottom:1
 .hd{display:flex;align-items:center;justify-content:space-between;padding:14px 40px}
 .logo{display:flex;flex-direction:column;line-height:1}
 .logo .sm{font-family:'Pinyon Script',cursive;color:var(--gold);font-size:.92rem;margin-bottom:2px;padding-left:4px}
-.logo .lg{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--gold);font-size:2.05rem;letter-spacing:.02em}
+.logo .lg{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--berry);font-size:2.05rem;letter-spacing:.02em}
 .logo .tag{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.34em;font-size:.52rem;color:var(--gold);margin-top:1px}
 nav{display:flex;gap:30px;align-items:center;font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;font-weight:500;color:#52504a}
 nav a.active{color:var(--berry);position:relative}
 nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--berry)}
 
 /* HERO */
-.hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 80% 0%,#FCEFF0 0%,var(--cream) 46%)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 80% 0%,#F7E5E7 0%,var(--cream) 46%)}
 .flor{position:absolute;width:330px;pointer-events:none;opacity:.96;z-index:1}
 .flor.tr{top:-30px;right:-40px;transform:scaleX(-1)}
 .flor.bl{top:-26px;left:-46px;transform:none}
@@ -57,7 +57,7 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 .vbar .prog{flex:1;height:3px;background:rgba(255,255,255,.35);border-radius:2px;position:relative}
 .vbar .prog::before{content:"";position:absolute;left:0;top:0;bottom:0;width:18%;background:#fff;border-radius:2px}
 .vbar .ic{opacity:.92}
-.hcopy .spark{font-family:'Pinyon Script',cursive;font-size:5.4rem;line-height:.8;background:linear-gradient(180deg,#E4C772,#B8902C 60%,#9A7820);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.hcopy .spark{font-family:'Pinyon Script',cursive;font-size:5.4rem;line-height:.8;background:linear-gradient(180deg,#B83A7E,#9B1762 55%,#61113E);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
 .hcopy .yr{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--green);font-size:3.5rem;letter-spacing:.06em;margin-top:-4px}
 .hcopy p.lead{font-size:1.02rem;color:#5a574f;max-width:430px;margin-top:16px}
 .divider{width:70px;height:14px;margin:22px 0 18px;color:var(--gold);opacity:.8}
@@ -69,10 +69,10 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 .dt .v small{display:block;font-size:.7rem;letter-spacing:.04em;color:#8a8275;font-family:'Jost',sans-serif;font-weight:400}
 
 /* COUNTDOWN */
-.cd{background:linear-gradient(90deg,#F7E4E8,#FBEFF1 60%,#F7E6EA);position:relative;overflow:hidden}
+.cd{background:linear-gradient(90deg,#EFD3D4,#F7E6E8 55%,#EFD3D4);position:relative;overflow:hidden}
 .cd .wrap{display:grid;grid-template-columns:auto 1fr auto;gap:38px;align-items:center;padding:30px 40px}
 .cd .lt .e{font-family:'Jost',sans-serif;text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;color:var(--gold);font-weight:600}
-.cd .lt h3{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--gold);font-size:2.1rem;letter-spacing:.03em;line-height:1;margin:2px 0 6px;text-transform:uppercase}
+.cd .lt h3{font-family:'Cormorant Garamond',serif;font-weight:700;color:var(--berry);font-size:2.1rem;letter-spacing:.03em;line-height:1;margin:2px 0 6px;text-transform:uppercase}
 .cd .lt p{font-size:.84rem;color:#9a6b78;max-width:230px}
 .timer{display:flex;gap:14px;align-items:center;justify-content:center}
 .tb{background:#fff;border-radius:9px;width:82px;padding:12px 0;text-align:center;box-shadow:0 6px 16px rgba(150,60,90,.12)}
@@ -98,7 +98,7 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 .about .flor.tl{top:-20px;left:-50px}
 .about .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;padding:58px 40px;position:relative;z-index:2;align-items:center}
 .about h2{font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--green);font-size:2.5rem;letter-spacing:.05em;text-transform:uppercase}
-.about .scr{font-family:'Pinyon Script',cursive;color:var(--gold);font-size:1.95rem;margin:2px 0 16px}
+.about .scr{font-family:'Pinyon Script',cursive;color:var(--berry);font-size:1.95rem;margin:2px 0 16px}
 .about p{font-size:.96rem;color:#5d5a51;max-width:470px}
 .quote{margin-top:22px;padding-left:8px;position:relative}
 .quote .mk{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--blush);line-height:.5}
@@ -305,7 +305,7 @@ svg{display:block}
   </div>
   <div class="infocard">
    <div class="irow"><div class="icirc" style="background:var(--berry)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 3l2.2 4.6L19 8.3l-3.5 3.3.9 4.9L12 14.2 7.6 16.5l.9-4.9L5 8.3l4.8-.7z"/></svg></div><div><div class="k">Even More &middot; Friday Night Add-On</div><div class="v">Friday, April 16, 2027 &middot; 6:00&ndash;8:30 PM</div></div></div>
-   <div class="irow"><div class="icirc" style="background:var(--pink)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.3-9C1.2 9 2.6 6 5.6 6c1.9 0 3.1 1.1 3.9 2.3C10.3 7.1 11.5 6 13.4 6c3 0 4.4 3 2.9 6-2.3 4.5-4.3 9-4.3 9z"/></svg></div><div><div class="k">Main Conference Day</div><div class="v">Saturday, April 17, 2027 &middot; 9:00 AM&ndash;4:00 PM</div></div></div>
+   <div class="irow"><div class="icirc" style="background:var(--orange)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 21s-7-4.5-9.3-9C1.2 9 2.6 6 5.6 6c1.9 0 3.1 1.1 3.9 2.3C10.3 7.1 11.5 6 13.4 6c3 0 4.4 3 2.9 6-2.3 4.5-4.3 9-4.3 9z"/></svg></div><div><div class="k">Main Conference Day</div><div class="v">Saturday, April 17, 2027 &middot; 9:00 AM&ndash;4:00 PM</div></div></div>
    <div class="irow"><div class="icirc" style="background:var(--green)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 21s7-6.6 7-12a7 7 0 1 0-14 0c0 5.4 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/></svg></div><div><div class="k">Location</div><div class="v">Tinley Park Convention Center<br>18451 Convention Center Dr, Tinley Park, IL 60477</div></div></div>
    <a class="btn" href="#tickets">Get Ticket Information <span class="ar">&rarr;</span></a>
   </div>
@@ -319,8 +319,8 @@ svg{display:block}
   <div class="tixintro"><h4>Pricing &amp; full details are on the way.</h4><p>Early-bird information will be announced soon. Check back to grab your spot.</p></div>
   <div class="tcard"><div class="tc" style="background:var(--green)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M6 3h12l4 6-10 12L2 9z"/></svg></div><h5>Both Days</h5><p>Friday Add-On + Saturday Conference</p><div class="soon">Details coming soon</div></div>
   <div class="tcard"><div class="tc" style="background:var(--berry)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><h5>Saturday Only</h5><p>Full access to the Saturday Conference</p><div class="soon">Details coming soon</div></div>
-  <div class="tcard"><div class="tc" style="background:var(--gold)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M3 8l4 3 5-6 5 6 4-3-2 11H5z"/></svg></div><h5>VIP Experience</h5><p>Premium seating, extra perks &amp; more</p><div class="soon">Details coming soon</div></div>
-  <div class="tcard"><div class="tc" style="background:var(--pink)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 3a5 5 0 0 1 5 5c0 6 2 7 2 7H5s2-1 2-7a5 5 0 0 1 5-5zm0 18a2.4 2.4 0 0 0 2.4-2.2H9.6A2.4 2.4 0 0 0 12 21z"/></svg></div><h5>Early Bird</h5><p>Early-bird pricing for the first to register</p><div class="soon">Stay tuned</div></div>
+  <div class="tcard"><div class="tc" style="background:var(--orange)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M3 8l4 3 5-6 5 6 4-3-2 11H5z"/></svg></div><h5>VIP Experience</h5><p>Premium seating, extra perks &amp; more</p><div class="soon">Details coming soon</div></div>
+  <div class="tcard"><div class="tc" style="background:var(--forest)"><svg width="24" height="24" viewBox="0 0 24 24" fill="#fff"><path d="M12 3a5 5 0 0 1 5 5c0 6 2 7 2 7H5s2-1 2-7a5 5 0 0 1 5-5zm0 18a2.4 2.4 0 0 0 2.4-2.2H9.6A2.4 2.4 0 0 0 12 21z"/></svg></div><h5>Early Bird</h5><p>Early-bird pricing for the first to register</p><div class="soon">Stay tuned</div></div>
  </div>
 </div></section>
 
