@@ -51,7 +51,7 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 /* HERO */
 .hero{position:relative;overflow:hidden;background:radial-gradient(120% 120% at 80% 0%,#F7E5E7 0%,var(--cream) 46%)}
 .flor{position:absolute;width:340px;pointer-events:none;opacity:.97;z-index:1}
-.flor.tr{top:-30px;right:-44px;transform:scaleX(-1)}
+.flor.tr{top:-30px;right:-44px;transform:none}
 .flor.bl{bottom:-120px;left:-48px;transform:none}
 .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;padding-top:50px;padding-bottom:56px;position:relative;z-index:2}
 .video{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 30px 66px -18px rgba(40,20,30,.5),0 6px 18px rgba(0,0,0,.2);aspect-ratio:16/10}
@@ -96,7 +96,7 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 /* ABOUT */
 .about{position:relative;overflow:hidden;background:var(--cream)}
 .about .flor{width:210px;opacity:.92;z-index:1}
-.about .flor.tl{top:-18px;left:-38px}
+.about .flor.tl{top:-18px;left:-38px;transform:scaleX(-1)}
 .about .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;padding:56px 40px;position:relative;z-index:2;align-items:center}
 .about .scr{font-family:'Allura',cursive;font-size:2.9rem;line-height:1.05;margin:0 0 16px;position:relative;display:inline-block}
 .about p{font-size:1.02rem;color:#5d5a51;max-width:480px}
@@ -151,7 +151,7 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 
 /* TESTIMONIALS */
 .tst{padding:40px 0 64px;text-align:center;position:relative;overflow:hidden;background:var(--cream)}
-.tst .flor{width:230px}.tst .flor.br{top:-8px;right:-38px;transform:scaleX(-1)}.tst .flor.bl2{top:-8px;left:-42px;transform:none}
+.tst .flor{width:230px}.tst .flor.br{top:-8px;right:-38px;transform:none}.tst .flor.bl2{top:-8px;left:-42px;transform:scaleX(-1)}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px;position:relative;z-index:2}
 .tcell{background:#fff;border:1px solid var(--line);border-radius:9px;padding:26px 24px;text-align:left;box-shadow:0 8px 20px rgba(60,40,30,.05)}
 .tcell .mk{font-family:'Times New Roman',Times,serif;font-size:2.4rem;color:var(--blush);line-height:.4}
