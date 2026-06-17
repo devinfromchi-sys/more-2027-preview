@@ -26,6 +26,8 @@ h2.sec{font-family:'Anton',sans-serif;font-weight:400;color:var(--green);font-si
 
 /* gold sparkly text */
 .goldtext{background:linear-gradient(165deg,#F6DE8B 0%,#E7C25C 32%,#C99A2E 58%,#A87C1C 78%,#EBCB6E 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.glitter{background-image:radial-gradient(circle,rgba(255,255,255,.95) 0.6px,transparent 1.5px),radial-gradient(circle,rgba(255,246,210,.85) 0.5px,transparent 1.3px),linear-gradient(135deg,#F7DF8C 0%,#FFF7D2 18%,#E7C25C 40%,#C99A2E 60%,#FFF3C4 76%,#D9B441 100%);background-size:9px 9px,13px 12px,230% 100%;background-position:0 0,4px 5px,0% 0;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shimmer 3.6s linear infinite;filter:drop-shadow(0 1px 1px rgba(170,130,30,.22))}
+@keyframes shimmer{0%{background-position:0 0,4px 5px,0% 0}100%{background-position:0 0,4px 5px,230% 0}}
 /* sparkle / glitter stars */
 .sp{position:absolute;color:var(--goldlt);pointer-events:none;z-index:4;filter:drop-shadow(0 0 3px rgba(231,194,92,.6));animation:tw 2.6s ease-in-out infinite}
 @keyframes tw{0%,100%{opacity:.25;transform:scale(.65) rotate(0deg)}50%{opacity:1;transform:scale(1.05) rotate(18deg)}}
@@ -55,7 +57,7 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 .video{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 30px 66px -18px rgba(40,20,30,.5),0 6px 18px rgba(0,0,0,.2);aspect-ratio:16/10}
 .video img{width:100%;height:100%;object-fit:cover}
 .hcopy{position:relative}
-.hcopy .spark{font-family:'Allura',cursive;font-size:6.6rem;line-height:.78;display:block}
+.hcopy .spark{font-family:'Allura',cursive;font-size:6.1rem;line-height:1.12;padding:8px 6px 4px;display:block;overflow:visible}
 .hcopy .yr{font-family:'Anton',sans-serif;font-weight:400;color:var(--green);font-size:3.5rem;letter-spacing:.04em;margin-top:6px}
 .hcopy p.lead{font-size:1.12rem;color:#5a574f;max-width:440px;margin-top:18px}
 .divider{width:150px;height:16px;margin:20px 0 18px;color:var(--gold)}
@@ -93,8 +95,8 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 
 /* ABOUT */
 .about{position:relative;overflow:hidden;background:var(--cream)}
-.about .flor{width:188px;opacity:.9;z-index:1}
-.about .flor.tl{top:-38px;left:-44px}
+.about .flor{width:210px;opacity:.92;z-index:1}
+.about .flor.tl{top:-18px;left:-38px}
 .about .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;padding:56px 40px;position:relative;z-index:2;align-items:center}
 .about .scr{font-family:'Allura',cursive;font-size:2.9rem;line-height:1.05;margin:0 0 16px;position:relative;display:inline-block}
 .about p{font-size:1.02rem;color:#5d5a51;max-width:480px}
@@ -114,8 +116,8 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 .infocard .btn{width:100%;justify-content:center;margin-top:18px}
 
 /* MOMENT image band */
-.moment{position:relative;height:340px;overflow:hidden}
-.moment img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.moment{position:relative;height:430px;overflow:hidden}
+.moment img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
 .moment .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,82,96,.36),rgba(97,17,62,.42))}
 .moment .mtxt{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff}
 .moment .mtxt .s{font-family:'Allura',cursive;font-size:3.4rem;line-height:1}
@@ -134,21 +136,22 @@ nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-7px;heig
 
 /* PAST collage */
 .past{padding:52px 0 46px;text-align:center;background:var(--cream)}
-.collage{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:165px;gap:13px;margin-top:30px}
+.collage{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:192px;gap:12px;margin-top:30px}
 .collage .c{overflow:hidden;border-radius:10px;box-shadow:0 8px 18px rgba(60,40,30,.12)}
-.collage .c img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.collage .c img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .5s}
 .collage .c:hover img{transform:scale(1.05)}
 .c1{grid-column:1/3;grid-row:1/3}
-.c2{grid-column:3/4;grid-row:1/2}
+.c2{grid-column:3/4;grid-row:1/3}
 .c3{grid-column:4/5;grid-row:1/2}
-.c4{grid-column:3/5;grid-row:2/3}
+.c4{grid-column:4/5;grid-row:2/3}
 .c5{grid-column:1/2;grid-row:3/4}
-.c6{grid-column:2/4;grid-row:3/4}
-.c7{grid-column:4/5;grid-row:3/4}
+.c6{grid-column:2/3;grid-row:3/4}
+.c7{grid-column:3/4;grid-row:3/4}
+.c8{grid-column:4/5;grid-row:3/4}
 
 /* TESTIMONIALS */
 .tst{padding:40px 0 64px;text-align:center;position:relative;overflow:hidden;background:var(--cream)}
-.tst .flor{width:240px}.tst .flor.br{top:-24px;right:-44px;transform:scaleX(-1)}.tst .flor.bl2{top:-24px;left:-50px;transform:none}
+.tst .flor{width:230px}.tst .flor.br{top:-8px;right:-38px;transform:scaleX(-1)}.tst .flor.bl2{top:-8px;left:-42px;transform:none}
 .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px;position:relative;z-index:2}
 .tcell{background:#fff;border:1px solid var(--line);border-radius:9px;padding:26px 24px;text-align:left;box-shadow:0 8px 20px rgba(60,40,30,.05)}
 .tcell .mk{font-family:'Times New Roman',Times,serif;font-size:2.4rem;color:var(--blush);line-height:.4}
@@ -218,9 +221,9 @@ svg{display:block}
  .tixgrid{grid-template-columns:1fr 1fr;gap:13px}
  .tixintro{grid-column:1 / -1;text-align:center}
  .tcard p{min-height:0}
- .collage{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
- .c1{grid-column:1/3;grid-row:1/3}.c2{grid-column:1/2;grid-row:3/4}.c3{grid-column:2/3;grid-row:3/4}
- .c4{grid-column:1/3;grid-row:4/5}.c5{grid-column:1/2;grid-row:5/6}.c6{grid-column:2/3;grid-row:5/6}.c7{grid-column:1/3;grid-row:6/7}
+ .collage{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+ .c1{grid-column:1/3;grid-row:1/3}.c2{grid-column:1/2;grid-row:3/5}.c3{grid-column:2/3;grid-row:3/4}.c4{grid-column:2/3;grid-row:4/5}
+ .c5{grid-column:1/2;grid-row:5/6}.c6{grid-column:2/3;grid-row:5/6}.c7{grid-column:1/2;grid-row:6/7}.c8{grid-column:2/3;grid-row:6/7}
  .tst{padding:30px 0 48px}
  .tgrid{grid-template-columns:1fr;gap:14px}
  .tst .flor{display:none}
@@ -263,7 +266,7 @@ svg{display:block}
    <img src="assets/A04I6766.jpg">
   </div>
   <div class="hcopy">
-   <span class="spark goldtext">Sparkle</span>
+   <span class="spark glitter">Sparkle</span>
    <div class="yr">IN 2027</div>
    <svg class="sp" style="top:-14px;left:-18px;width:26px;height:26px;animation-delay:.2s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12 6.5-1 11-5.5 12-12z"/></svg>
    <svg class="sp" style="top:24px;left:215px;width:20px;height:20px;animation-delay:.9s" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12 6.5-1 11-5.5 12-12z"/></svg>
@@ -330,7 +333,7 @@ svg{display:block}
 
 <!-- MOMENT band -->
 <section class="moment">
- <img src="assets/A04I6790.jpg">
+ <img src="assets/2A6A7154.jpg">
  <div class="ov"></div>
  <div class="mtxt"><span class="s goldtext">You belong here.</span><span class="b">Two days. One MORE family.</span></div>
 </section>
@@ -352,11 +355,12 @@ svg{display:block}
  <div class="collage">
   <div class="c c1"><img src="assets/A04I6766.jpg"></div>
   <div class="c c2"><img src="assets/2A6A7198.jpg"></div>
-  <div class="c c3"><img src="assets/2A6A7154.jpg"></div>
+  <div class="c c3"><img src="assets/2A6A7127.jpg"></div>
   <div class="c c4"><img src="assets/A04I6776.jpg"></div>
-  <div class="c c5"><img src="assets/2A6A7127.jpg"></div>
+  <div class="c c5"><img src="assets/2A6A7174.jpg"></div>
   <div class="c c6"><img src="assets/A04I6781.jpg"></div>
-  <div class="c c7"><img src="assets/A04I6790.jpg"></div>
+  <div class="c c7"><img src="assets/A04I6783.jpg"></div>
+  <div class="c c8"><img src="assets/A04I6790.jpg"></div>
  </div>
 </div></section>
 
@@ -376,7 +380,7 @@ svg{display:block}
 
 <!-- FOOTER -->
 <footer id="contact">
- <div class="ftop"><span class="fscript">You were made to <b class="goldtext">SPARKLE.</b></span></div>
+ <div class="ftop"><span class="fscript">You were made to <b class="glitter">SPARKLE.</b></span></div>
  <div class="fgrid">
   <div class="flogo"><div class="sm">encourage, abundantly, immeasurably</div><div class="lg goldtext">MORE</div><div class="tg">Women's Conference &middot; 2027</div></div>
   <div class="fcol"><h6>Quick Links</h6><a href="#top">Home</a><a href="#speakers">Speakers</a><a href="#tickets">Tickets</a><a href="#about">About</a><a href="#past">Gallery</a></div>
