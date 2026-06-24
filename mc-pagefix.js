@@ -21,7 +21,7 @@
       r.proposal=setText('View 2026 Sponsorship Proposal','View Sponsorship Proposal');
       r.ourSponsors=setText('Our 2026 Sponsors','Our Sponsors');
       r.expands=setText('In 2026, MORE expands to a two-day event','MORE is a two-day event at the Tinley Park Convention Center, featuring a Friday evening session and growing reach across the region.');
-      r.hideLineup=hideBlock('strong recognition and added visibility');
+      r.lineup=setText('MORE 2026 features','MORE offers a lineup that brings strong recognition and added visibility to the event. MORE 2027 features keynote speakers Annie F. Downs and Sheila Walsh, comedian JJ Barrows, host Stephanie Reynolds, and more.');
     }
     if(/blooming-boutique/.test(p)){
       r.shops=setText('2026 Featured Shops','Featured Shops');
