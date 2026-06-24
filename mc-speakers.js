@@ -9,7 +9,7 @@ function init(){
   // hide empty native page sections on this blank page
   [].forEach.call(document.querySelectorAll('section[data-section-id]'),function(s){
     if(s.closest('footer'))return;
-    if(!s.querySelector('img') && !(s.innerText||'').trim()) s.style.display='none';
+    s.style.display='none';
   });
   var main=document.querySelector('#sections')||document.querySelector('main')||document.body;
   main.appendChild(sp);
