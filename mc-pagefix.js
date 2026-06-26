@@ -15,6 +15,7 @@
   function apply(){
     var p=location.pathname.toLowerCase(), r={};
     [].forEach.call(document.querySelectorAll('a[href*="ticketspice.com"]'),function(a){a.setAttribute('href','/tickets');});
+    injectCSS('mc-mcpg-fix','#mcpg{overflow-x:hidden}body.tweak-transparent-header #mcpg .pg-hero{padding-top:130px!important}@media(max-width:780px){#mcpg .pg-eyebrow{white-space:normal!important;overflow-wrap:anywhere}}');
     if(/contact-us/.test(p)){
       injectCSS('mc-contact-polish',
         "#sections h1,#sections h2,#sections h3{font-family:'Anton',sans-serif!important;letter-spacing:.01em!important}"+
@@ -22,7 +23,7 @@
       );
       r.contact=1;
     }
-    if(/\/about(\/|$)/.test(p)){
+    if(/our-story/.test(p)){
       r.joinBtn=setText('Join Us at MORE 2026','Join Us at MORE 2027');
     }
     if(/\/sponsors(\/|$)/.test(p)){

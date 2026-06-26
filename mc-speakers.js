@@ -8,7 +8,7 @@ function init(){
   var sp=tmp.firstElementChild;
   [].forEach.call(document.querySelectorAll('section[data-section-id]'),function(s){
     if(s.closest('footer'))return;
-    s.style.display='none';
+    s.remove();
   });
   var main=document.querySelector('#sections')||document.querySelector('main')||document.body;
   main.appendChild(sp);
