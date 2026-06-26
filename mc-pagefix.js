@@ -15,6 +15,7 @@
   function apply(){
     var p=location.pathname.toLowerCase(), r={};
     [].forEach.call(document.querySelectorAll('a[href*="ticketspice.com"]'),function(a){a.setAttribute('href','/tickets');});
+    [].forEach.call(document.querySelectorAll('span,h1,h2,h3,p,div'),function(el){ if(el.children.length===0 && /^\s*2026\s*$/.test(el.textContent)){ el.textContent=el.textContent.replace('2026','2027'); } });
     injectCSS('mc-mcpg-fix','#mcpg{overflow-x:hidden}body.tweak-transparent-header #mcpg .pg-hero{padding-top:130px!important}@media(max-width:780px){#mcpg .pg-eyebrow{white-space:normal!important;overflow-wrap:anywhere}}');
     if(/contact-us/.test(p)){
       injectCSS('mc-contact-polish',
