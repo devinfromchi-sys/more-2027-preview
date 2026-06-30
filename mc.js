@@ -1,12 +1,12 @@
 var B="https://images.squarespace-cdn.com/content/v1/66918331110d39781bf46716/";
 var spk=[
+ ["Keynote","Annie F. Downs","ab2ced19-1ae6-4ce6-b48f-d27a127654e7/annie-f-downs.jpg","https://www.anniefdowns.com/"],
+ ["Keynote","Sheila Walsh","57658043-c3d9-4eaf-b197-814bbf1e0780/sheila-walsh.jpg","https://sheilawalsh.com/"],
+ ["Comedian","JJ Barrows","a4af5029-403e-4bdb-91fb-ac64174b2db1/jj-barrows.jpg","https://jjbarrows.com/"],
  ["Friday Speaker","Debbie Del Priore","a188be47-2925-4821-b3f3-197e39b21277/Debbie.jpg","https://www.58-foundation.org/team"],
  ["Friday Speaker","Audra Smith","a22385ef-1879-412a-a827-67c0b61b6e55/Audra+Headshot.jpg","https://www.58-foundation.org/team"],
  ["Host","Stephanie Reynolds","a0a54382-66c5-4967-92df-fdbfd5d27b4c/steph.jpg","https://www.58-foundation.org/team"],
- ["Saturday Speaker","Teri Erickson","a730aa12-8e0e-4ba3-9d2c-0f99e5f05946/Teri+heaadshot.jpg","https://www.58-foundation.org/team"],
- ["Keynote","Annie F. Downs","ab2ced19-1ae6-4ce6-b48f-d27a127654e7/annie-f-downs.jpg","https://www.anniefdowns.com/"],
- ["Keynote","Sheila Walsh","57658043-c3d9-4eaf-b197-814bbf1e0780/sheila-walsh.jpg","https://sheilawalsh.com/"],
- ["Comedian","JJ Barrows","a4af5029-403e-4bdb-91fb-ac64174b2db1/jj-barrows.jpg","https://jjbarrows.com/"]
+ ["Saturday Speaker","Teri Erickson","a730aa12-8e0e-4ba3-9d2c-0f99e5f05946/Teri+heaadshot.jpg","https://www.58-foundation.org/team"]
 ];
 var ICON='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M7 17L17 7M9 7h8v8"/></svg>';
 document.getElementById('track').innerHTML=spk.map(function(s){return '<div class="spk"><div class="ph"><img src="'+B+s[2]+'?format=600w"></div><div class="nm">'+s[1]+'<a class="lnk" href="'+s[3]+'" target="_blank" rel="noopener" aria-label="Visit website">'+ICON+'</a></div><div class="role">'+s[0]+'</div></div>';}).join('');
