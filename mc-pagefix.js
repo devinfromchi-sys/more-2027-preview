@@ -53,6 +53,10 @@
     if(/mission-purpose/.test(p) && /General\s+2/i.test(document.title)){ document.title='Mission & Purpose — MORE Conference'; r.title=1; }
     injectCSS('mc-mcpg-fix','#mc,#mcpg{overflow-x:hidden}#mcpg .pg-title,#mcpg .pg-h,#mcpg .pg-eyebrow{overflow-wrap:anywhere}body.tweak-transparent-header #mcpg .pg-hero{padding-top:130px!important}@media(max-width:780px){#mcpg .pg-wrap{width:100%}#mcpg .pg-eyebrow{white-space:normal!important}#mcpg .pg-flor{max-width:42%}}');
     a11y(p);
+    // legal pages (privacy/terms/accessibility): force readable dark text + a proper full-width centered column
+    if(/privacy-policy|\/terms|\/accessibility/.test(p)){
+      injectCSS('mc-legal','#sections .fluid-engine .fe-block{grid-column:1/-1!important}.markdown-block .sqs-block-content{max-width:820px;margin:0 auto;text-align:left}.markdown-block,.markdown-block p,.markdown-block li,.markdown-block strong,.markdown-block em,.markdown-block td{color:#242424!important;-webkit-text-fill-color:#242424!important}.markdown-block h1,.markdown-block h2,.markdown-block h3,.markdown-block h4{color:#156B6F!important;-webkit-text-fill-color:#156B6F!important}.markdown-block a{color:#9B1762!important;-webkit-text-fill-color:#9B1762!important;text-decoration:underline}#mcpg,#sections .fluid-engine{overflow:visible}');
+    }
     if(/contact-us/.test(p)){
       injectCSS('mc-contact-polish',
         "#sections h1,#sections h2,#sections h3{font-family:'Anton',sans-serif!important;letter-spacing:.01em!important}"+
