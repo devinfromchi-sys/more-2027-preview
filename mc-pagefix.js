@@ -90,6 +90,7 @@
       r.joinBtn=setText('Join Us at MORE 2026','Join Us at MORE 2027');
     }
     if(/\/sponsors(\/|$)/.test(p)){
+      try{ var _q=document.querySelector('img[alt="QAVA"]'); if(_q && !_q.closest('a')){ var _qa=document.createElement('a'); _qa.href='https://qava.tv/welcome'; _qa.target='_blank'; _qa.rel='noopener'; _qa.className='sp-logo-link'; _qa.setAttribute('aria-label','Visit QAVA website (opens in a new tab)'); _q.parentNode.insertBefore(_qa,_q); _qa.appendChild(_q); } }catch(e){}
       r.headline=setText('Supporting the Women of MORE 2026','Supporting the Women of MORE 2027');
       r.proposal=setText('View 2026 Sponsorship Proposal','View Sponsorship Proposal');
       r.ourSponsors=setText('Our 2026 Sponsors','Our Sponsors');
