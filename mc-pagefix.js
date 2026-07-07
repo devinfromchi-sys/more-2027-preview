@@ -64,9 +64,9 @@
     try{[].forEach.call(document.querySelectorAll('#mc .tiers .tier'),function(t){var h=((t.querySelector('h3')||{}).textContent||'').toLowerCase();var pr=t.querySelector('.price');if(!pr||pr.getAttribute('data-mcp'))return;var v=null,note='';if(h.indexOf('saturday')>-1){v='$69';note='VIP upgrade: $99';}else if(h.indexOf('vip')>-1){v='$129';}else if(h.indexOf('weekend')>-1||h.indexOf('full')>-1){v='$99';}if(v){pr.innerHTML=v+(note?'<span class="mcvip">'+note+'</span>':'');pr.setAttribute('data-mcp','1');}});}catch(e){}
     // /tickets page: confirmed prices on tiers; drop Friday-only ticket + group rates (Teri: none this year)
     if(/\/tickets/.test(p)){ try{
-      setText('Saturday Conference: The full main conference day on Saturday, April 17','Saturday Conference — $69 (VIP upgrade $99): The full main conference day on Saturday, April 17.');
-      setText('Full Weekend: Both the Friday evening session and the Saturday main conference','Full Weekend — $99 (VIP upgrade $129): Both the Friday evening session and the Saturday main conference.');
-      setText('VIP Experience: Our fullest weekend experience, with details announced August 1','VIP Experience — $129: The full weekend with premium VIP touches.');
+      setText('Saturday Conference: The full main conference day on Saturday, April 17','Saturday Conference, $69 (VIP upgrade $99). The full main conference day on Saturday, April 17.');
+      setText('Full Weekend: Both the Friday evening session and the Saturday main conference','Full Weekend, $99 (VIP upgrade $129). Both the Friday evening session and the Saturday main conference.');
+      setText('VIP Experience: Our fullest weekend experience, with details announced August 1','VIP Experience, $129. The full weekend with premium VIP touches.');
       var _f=smallestWith('Friday Night Only: Join us for the'); if(_f){(_f.closest('li')||_f).remove();}
       var _g=smallestWith('Group rates may be available for those bringing a group'); if(_g){(_g.closest('li')||_g).remove();}
       var _gp=smallestWith('Group rates may be available, and we will share'); if(_gp){_gp.innerHTML=_gp.innerHTML.replace(/\s*Planning to bring[^]*?Group rates may be available[^.]*\.\s*/i,' ').replace(/Group rates may be available[^.]*\.\s*/i,'');}
