@@ -49,8 +49,7 @@
     [].forEach.call(document.querySelectorAll('span,h1,h2,h3,p,div'),function(el){ if(el.children.length===0 && /^\s*2026\s*$/.test(el.textContent)){ el.textContent=el.textContent.replace('2026','2027'); } });
     // remove orphan "script>" text nodes left by a malformed page header injection (boutique)
     try{ var bd=document.body; if(bd){ for(var n=bd.firstChild;n;){ var nx=n.nextSibling; if(n.nodeType===3){ var v=(n.nodeValue||'').replace(/\s+/g,''); if(v==='script>'||v==='</script>'||v==='script></script>'||v==='script>script>'){ bd.removeChild(n); r.strayScript=1; } } n=nx; } } }catch(e){}
-    // fix the duplicated/placeholder browser-tab title on Mission & Purpose
-    if(/mission-purpose/.test(p) && /General\s+2/i.test(document.title)){ document.title='Mission & Purpose — MORE Conference'; r.title=1; }
+    // (mission-purpose "General 2" title patch removed 2026-07-08 — fixed natively in Page Settings SEO title)
     injectCSS('mc-mcpg-fix','#mc,#mcpg{overflow-x:hidden}#mcpg .pg-title,#mcpg .pg-h,#mcpg .pg-eyebrow{overflow-wrap:anywhere}body.tweak-transparent-header #mcpg .pg-hero{padding-top:130px!important}@media(max-width:780px){#mcpg .pg-wrap{width:100%}#mcpg .pg-eyebrow{white-space:normal!important}#mcpg .pg-flor{max-width:42%}}');
     a11y(p);
     // homepage mobile/contrast polish (Teri feedback): speaker photo squish, verse quote, gold contrast, hero spacing
@@ -90,20 +89,10 @@
       );
       r.contact=1;
     }
-    if(/our-story/.test(p)){
-      r.joinBtn=setText('Join Us at MORE 2026','Join Us at MORE 2027');
-    }
+    // NOTE: legacy de-2026 setText branches for our-story/sponsors/boutique removed 2026-07-08 —
+    // those pages are fully rebuilt by their #mcpg injectors, so the old native strings no longer exist.
     if(/\/sponsors(\/|$)/.test(p)){
-      try{ var _q=document.querySelector('img[alt="QAVA"]'); if(_q && !_q.closest('a')){ var _qa=document.createElement('a'); _qa.href='https://qava.tv/welcome'; _qa.target='_blank'; _qa.rel='noopener'; _qa.className='sp-logo-link'; _qa.setAttribute('aria-label','Visit QAVA website (opens in a new tab)'); _q.parentNode.insertBefore(_qa,_q); _qa.appendChild(_q); } }catch(e){}
-      r.headline=setText('Supporting the Women of MORE 2026','Supporting the Women of MORE 2027');
-      r.proposal=setText('View 2026 Sponsorship Proposal','View Sponsorship Proposal');
-      r.ourSponsors=setText('Our 2026 Sponsors','Our Sponsors');
-      r.expands=setText('In 2026, MORE expands to a two-day event','MORE is a two-day event at the Tinley Park Convention Center, featuring a Friday evening session and growing reach across the region.');
-      r.lineup=setText('MORE 2026 features','MORE offers a lineup that brings strong recognition and added visibility to the event. MORE 2027 features keynote speakers Annie F. Downs and Sheila Walsh, comedian JJ Barrows, host Stephanie Reynolds, and more.');
-    }
-    if(/blooming-boutique/.test(p)){
-      r.shops=setText('2026 Featured Shops','Featured Shops');
-      r.partners=setText('2026 Featured Partners','Featured Partners');
+      try{ var _q=document.querySelector('img[alt="QAVA"]'); if(_q && !_q.closest('a')){ var _qa=document.createElement('a'); _qa.href='https://qava.tv/welcome'; _qa.target='_blank'; _qa.rel='noopener'; _qa.className='sp-logo-link'; _qa.setAttribute('aria-label','Visit QAVA website (opens in a new tab)'); _q.parentNode.insertBefore(_qa,_q); _qa.appendChild(_q); r.qava=1; } }catch(e){}
     }
     try{ if(window.localStorage && localStorage.getItem('mcdebug')) console.log('mc-pagefix', location.pathname, JSON.stringify(r)); }catch(e){}
   }
