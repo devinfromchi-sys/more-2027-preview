@@ -1,0 +1,29 @@
+<!-- MORE 2027 pinned loader · commit f2e3833fe81a · generated 2026-07-08 -->
+<script src="https://cdn.jsdelivr.net/gh/devinfromchi-sys/more-2027-preview@f2e3833fe81aba000777e4832b9d0a1f3aeffd5c/mc-pagefix.js" integrity="sha384-yI1vBr7mJ89Pc6w3CWgGaZZIu58xQeTugCwljqua0AXgkXcKqNgnHa/EyhHVKmuT" crossorigin="anonymous" defer></script>
+<script>
+(function () {
+  var p = location.pathname.replace(/\/+$/, '');
+  if (p === '') p = '/';
+  var routes = [
+    [["/","/moreconference"], "mc-inject.js", "sha384-2/fhq2PY3Ryo3ch6Z4Ki0HR6P5Knot/willex/XgaB1o/rlIwFML8scMtdgF4lIC"],
+    [["/speakers"], "mc-speakers.js", "sha384-W4XlX8SkEvpezaU7faK6SES6Hv8nxbS8HPkdIzNfdXVQ8DkV+Duxp5Gw6RHzBZvX"],
+    [["/tickets"], "mc-tickets.js", "sha384-dz83Hx38Av+W1g/fwhP8f/1nQRccBF9Mf484Y0fi9K52otLOC6o16XsRJjJ+ON7y"],
+    [["/faqs"], "mc-faq.js", "sha384-wfL/q73VOq6LPNZh5JLJspsfnhgUoXP4WL0/ajfVNI1lrCqLm71A5p4temNBw/6R"],
+    [["/volunteer"], "mc-volunteer.js", "sha384-CvzKk0/Rib3zP8yfsRUdK28A186nTmgyvGYKiSrpXW+B1ElLDNekdmbN4Ki4vV4q"],
+    [["/mission-purpose"], "mc-mission.js", "sha384-NAzlsg+Lwm632fYzRx9LuLD3xO5ou+7UJ0YZ+JKGzB+JSBGDv07mM5PZKYu9s1i7"],
+    [["/our-story"], "mc-story.js", "sha384-b0RE3ZHteBDN8TLR7kltA4pAFpfpkyPMcVaF+zpoVOP+R8HPMRo1Ncwi/h1LjHqw"],
+    [["/sponsors"], "mc-sponsors.js", "sha384-8zCU/6WshhTvbhonrnFCzhHAsk2OEpa6yzYny6LK1shcEVXUrTCbqAPcFI/6zTSY"],
+    [["/blooming-boutique"], "mc-boutique.js", "sha384-rcv1PIAg51HiS+/B7N9YWjlK8+Dt0VlqzeNqStymk6YJpN03so2o8PlDiEAtqOu3"]
+  ];
+  for (var i = 0; i < routes.length; i++) {
+    if (routes[i][0].indexOf(p) !== -1) {
+      var s = document.createElement('script');
+      s.src = "https://cdn.jsdelivr.net/gh/devinfromchi-sys/more-2027-preview@f2e3833fe81aba000777e4832b9d0a1f3aeffd5c/" + routes[i][1];
+      s.integrity = routes[i][2];
+      s.crossOrigin = 'anonymous';
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+  }
+})();
+</script>
