@@ -105,7 +105,7 @@
       r.shops=setText('2026 Featured Shops','Featured Shops');
       r.partners=setText('2026 Featured Partners','Featured Partners');
     }
-    try{ console.log('mc-pagefix', location.pathname, JSON.stringify(r)); }catch(e){}
+    try{ if(window.localStorage && localStorage.getItem('mcdebug')) console.log('mc-pagefix', location.pathname, JSON.stringify(r)); }catch(e){}
   }
   function run(){ apply(); [400,1200,2500,4500,7000].forEach(function(d){setTimeout(apply,d);});
     if(window.MutationObserver){ var mo=new MutationObserver(function(){apply();}); try{ mo.observe(document.body,{childList:true,subtree:true}); setTimeout(function(){mo.disconnect();},9000); }catch(e){} } }

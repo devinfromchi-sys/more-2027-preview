@@ -65,7 +65,7 @@
       "name": "Our Story",
       "marker": "#mcpg",
       "scripts": ["mc-pagefix.js", "mc-story.js"],
-      "mustContain": ["Teri"],
+      "mustContain": ["How It All Began", "Ephesians 3:20"],
       "budget2026": 4
     },
     {
