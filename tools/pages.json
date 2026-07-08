@@ -1,0 +1,123 @@
+{
+  "base": "https://www.moreconference.org",
+  "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "pages": [
+    {
+      "path": "/",
+      "name": "Home",
+      "marker": "#mc",
+      "scripts": ["mc-pagefix.js", "mc-inject.js"],
+      "mustContain": ["$69", "$99", "$129", "Be the First to Know"],
+      "countdown": true,
+      "budget2026": 16
+    },
+    {
+      "path": "/moreconference",
+      "name": "Home (slug)",
+      "marker": "#mc",
+      "scripts": ["mc-pagefix.js", "mc-inject.js"],
+      "mustContain": ["$69", "$99", "$129"],
+      "countdown": true,
+      "budget2026": 16
+    },
+    {
+      "path": "/speakers",
+      "name": "Speakers",
+      "marker": "#mcsp",
+      "scripts": ["mc-pagefix.js", "mc-speakers.js"],
+      "mustContain": ["Annie F. Downs", "Sheila Walsh", "Even MORE"],
+      "budget2026": 3
+    },
+    {
+      "path": "/tickets",
+      "name": "Tickets",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-tickets.js"],
+      "mustContain": ["$69", "$99", "$129", "ticket-portal"],
+      "budget2026": 4
+    },
+    {
+      "path": "/faqs",
+      "name": "FAQs",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-faq.js"],
+      "mustContain": ["April 16", "April 17"],
+      "budget2026": 38
+    },
+    {
+      "path": "/volunteer",
+      "name": "Volunteer",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-volunteer.js"],
+      "mustContain": ["Volunteer"],
+      "budget2026": 7
+    },
+    {
+      "path": "/mission-purpose",
+      "name": "Mission & Purpose",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-mission.js"],
+      "mustContain": ["Mission"],
+      "budget2026": 3
+    },
+    {
+      "path": "/our-story",
+      "name": "Our Story",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-story.js"],
+      "mustContain": ["Teri"],
+      "budget2026": 4
+    },
+    {
+      "path": "/sponsors",
+      "name": "Sponsors",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-sponsors.js"],
+      "mustContain": ["Ozinga", "QAVA"],
+      "budget2026": 10
+    },
+    {
+      "path": "/blooming-boutique",
+      "name": "Blooming Boutique",
+      "marker": "#mcpg",
+      "scripts": ["mc-pagefix.js", "mc-boutique.js"],
+      "mustContain": ["Kingdom Corner"],
+      "budget2026": 8
+    },
+    {
+      "path": "/contact-us",
+      "name": "Contact",
+      "marker": null,
+      "scripts": ["mc-pagefix.js"],
+      "mustContain": ["Send Us a Message", "Be the First to Know"],
+      "budget2026": 4
+    },
+    {
+      "path": "/privacy-policy",
+      "name": "Privacy Policy",
+      "marker": null,
+      "scripts": ["mc-pagefix.js"],
+      "mustContain": ["June 30, 2026", "help@moreconference.org"],
+      "budget2026": 6
+    },
+    {
+      "path": "/terms-of-use",
+      "name": "Terms of Use",
+      "marker": null,
+      "scripts": ["mc-pagefix.js"],
+      "mustContain": ["June 30, 2026", "transferable"],
+      "budget2026": 5
+    },
+    {
+      "path": "/accessibility-statement",
+      "name": "Accessibility Statement",
+      "marker": null,
+      "scripts": ["mc-pagefix.js"],
+      "mustContain": ["WCAG", "June 30, 2026"],
+      "budget2026": 5
+    },
+    { "path": "/home-2027", "name": "DRAFT home-2027", "draft": true },
+    { "path": "/2027-homepage-build", "name": "DRAFT 2027-homepage-build", "draft": true },
+    { "path": "/moreconference-2", "name": "DRAFT moreconference-2", "draft": true }
+  ]
+}
