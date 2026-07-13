@@ -50,6 +50,9 @@ function init(){
   if(anchor){ anchor.insertAdjacentElement('afterend', mc); } else { (document.querySelector('#sections')||document.body).appendChild(mc); }
   if(hero){ hero.classList.add('mc-nhero-hide'); }
   try{ runScripts(); }catch(e){ console.log('mc init err',e); }
+  // Mobile hero clears the native (absolute/overlay) Squarespace header: pad by its real height.
+  function fixMHeroTop(){try{var mh=document.querySelector('#mc .mhero');if(!mh)return;if(getComputedStyle(mh).display==='none'){mh.style.paddingTop='';return;}var hd=document.querySelector('#header');if(!hd)return;var h=hd.getBoundingClientRect().height;if(h>0){mh.style.paddingTop=Math.round(h+22)+'px';}}catch(e){}}
+  fixMHeroTop();[200,700,1500].forEach(function(d){setTimeout(fixMHeroTop,d);});window.addEventListener('resize',fixMHeroTop);window.addEventListener('load',fixMHeroTop);
 }
 if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
 })();
