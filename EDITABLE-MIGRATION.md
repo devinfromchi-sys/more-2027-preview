@@ -73,16 +73,24 @@ Verified live (both viewports): unchanged, 0 JS errors, injector still active.
 - In the editor all native sections are VISIBLE even though the injector also renders, so native
   blocks can be edited without removing the injector first.
 
-## BLOCKER before removing mc-story.js from the loader
-1. **Header contrast.** `#header` background is `rgba(0,0,0,0)` (transparent) site-wide. The native
-   page has a full-bleed floral banner behind it, so the nav sits on busy florals and is hard to
-   read. The injector hid this by covering the banner with a solid hero. Needs a scrim/solid
-   header background before the flip. Squarespace marks these pages `body.tweak-transparent-header`.
-2. **Content parity.** The injected page has content the native page does NOT:
+## BLOCKERS before removing mc-story.js from the loader
+1. ~~**Header contrast.**~~ **RESOLVED 2026-07-27 (pin e81e270).** `#header` was transparent with
+   full-bleed banner imagery behind it, so nav text crossed cream AND dark foliage. Fixed in
+   `mc-pagefix.js` (`mc-hdr-legible`): a cream scrim on `#header`
+   `linear-gradient(180deg,rgba(250,246,234,.96),rgba(250,246,234,.94) 72%,rgba(250,246,234,.80))`
+   plus `backdrop-filter: blur(10px)` as progressive enhancement only (the gradient alone
+   guarantees the contrast; worst case over the darkest leaf is still about 5:1 for bronze
+   #7a5c10). Verified 20/20 (10 pages x desktop + mobile): scrim applied, 0 overflow, 0 JS errors.
+   Homepage header is pixel identical (scrim is invisible on already cream backgrounds).
+   NOTE: the header children are z-index 1..3 and positioned, so setting `background` directly on
+   `#header` is safe; do NOT use a `::before` scrim (it would paint over the static inline svg).
+
+2. **Content parity.** STILL OPEN. The injected page has content the native page does NOT:
    - "2025 and 2026: Where We Have Been" + 2025/2026 Featured Guests
    - Impact bullets (hundreds saved each year, nonprofit partners, ASL via Sonshine Interpreting)
-   Removing the injector without adding these natively LOSES that content. Decide: add natively, or
-   drop. (Native page uniquely has Vision, Mission, Spiritual Purpose, full Statement of Belief.)
+   Removing the injector without adding these natively LOSES that content. **Asked Ryan Hosman
+   2026-07-27 (email sent) whether to keep that section.** Native page uniquely has Vision,
+   Mission, Spiritual Purpose, and the full Statement of Belief.
 
 ## Deploy flow reminder (DEPLOY.md)
 Pushing to this repo does NOT change the live site. Release = push -> `node tools/mkloader.mjs` ->
