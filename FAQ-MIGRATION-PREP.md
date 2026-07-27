@@ -56,3 +56,51 @@ hardcoded on the page, so ticket pricing changes do not affect it.
   `.accordion-item__description`; questions in `.accordion-item__title`.
 - Header legibility is already solved site-wide (pin e81e270), so it is NOT a blocker here.
 - The native Location and Time card was already corrected to April 16 and 17, 2027.
+
+---
+
+# ANSWERS FROM RYAN'S SPEC (2027 MORE Women's Conference Details (2).docx, received 2026-07-27)
+This doc resolves nearly every open question AND contradicts several things currently live.
+
+## CRITICAL: ticket on-sale date is WRONG on the live site
+- **Spec says tickets go live August 20th, 2026** (appears 5 times in the doc).
+- **Live site says "August 1"** on `/`, `/tickets`, and `/faqs`, and the homepage countdown was
+  reading **4 days** remaining. It would hit zero on Aug 1 and imply tickets are live 19 days early.
+- Early bird per spec: **$15 off, applied automatically at checkout, Aug 20 2026 to Oct 31 2026.**
+- ACTION NEEDED: confirm Aug 20 is final, then update countdown target (`mc-inject.js` line ~18)
+  and every "August 1" string across homepage, tickets, FAQ.
+
+## Meet and greets (this was the blocking question for FAQ)
+- **Friday: JJ Barrows** meet and greet + book signing, included with Both Days and VIP Both Days.
+- **Saturday: Annie F. Downs and Sheila Walsh**, **raffle only**, not purchasable.
+- So the old "Meredith Andrews Meet and Greet raffle" becomes the **Annie F. Downs and Sheila Walsh**
+  raffle, and the Friday JJ Barrows meet and greet is a separate, included perk.
+- Spec: "Include separate disclaimer that meet and greet access is limited and not guaranteed for
+  Saturday only."
+
+## Ticket types (live FAQ is WRONG)
+- Saturday Only $69 / Saturday Only VIP $99 / Regular Bundle Both Days $99 / VIP Bundle Both Days $129
+- **There is NO "Friday Only" ticket.** Friday is add-on/bundle only, with a **waitlist form** for
+  Friday-only interest. The live `/faqs` currently lists "Friday Only" as a ticket type. FIX.
+
+## Other corrections vs the native FAQ
+| Item | Native FAQ says | Spec says |
+|---|---|---|
+| VIP capacity | 150-seat VIP section | **200 total VIP** |
+| Doors / registration | 7:30 registration, 7:45 VIP doors, 8:15 GA doors | **doors 7:30 am, registration 7:45 am** (verify with Teri, these conflict) |
+| Children | girls 12 and older invited | **children not allowed**; infants OK with mom, nursing room available |
+| Saturday capacity | not stated | **1500** Saturday limit; venue/total goal **2300** |
+| Friday capacity | not stated | **500 limit** |
+| Worship | Meredith Andrews references | **worship NOT confirmed yet** (so remove the Spotify link) |
+| Friday lineup | 2026 guests | **Debbie Del Priore** + worship + JJ Barrows meet and greet |
+
+NOTE: the injected 2027 copy currently says Friday features "Audra Smith and Debbie Del Priore,
+hosted by Stephanie Reynolds". The spec lists only **Debbie Del Priore**. CONFIRM with Ryan/Teri.
+
+## Answered incidentally
+- **Phone: (815) 409 0144** is correct (appears in the spec). The Volunteer page's
+  **815 406 0144 is the typo** and should be corrected.
+- Hotel: EVEN Hotel Chicago Tinley Park Convention Center by IHG; **group code "coming soon"**
+  (native FAQ currently says code MWC, verify); room block deadline **April 1**.
+- Lunch: $18, Saturday only, required selection per ticket, no capacity limit, non refundable.
+- Accessibility details live **only in the FAQ** per spec.
