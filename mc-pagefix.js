@@ -52,6 +52,13 @@
     // (mission-purpose "General 2" title patch removed 2026-07-08 — fixed natively in Page Settings SEO title)
     injectCSS('mc-mcpg-fix','#mc,#mcpg{overflow-x:hidden}#mcpg .pg-title,#mcpg .pg-h,#mcpg .pg-eyebrow{overflow-wrap:anywhere}body.tweak-transparent-header #mcpg .pg-hero{padding-top:130px!important}@media(max-width:780px){#mcpg .pg-wrap{width:100%}#mcpg .pg-eyebrow{white-space:normal!important}#mcpg .pg-flor{max-width:42%}}');
     a11y(p);
+    // 1.4.3 header legibility: the site header is transparent and full-bleed banner imagery sits
+    // behind it, so nav text crossed cream AND dark foliage. Cream scrim keeps the nav on a stable
+    // light backdrop (bronze #7a5c10 on this scrim stays above 5:1 even over the darkest leaves).
+    // Gradient is the guarantee; backdrop-filter is progressive enhancement only.
+    injectCSS('mc-hdr-legible',
+      '#header{background:linear-gradient(180deg,rgba(250,246,234,.96) 0%,rgba(250,246,234,.94) 72%,rgba(250,246,234,.80) 100%)!important;-webkit-backdrop-filter:blur(10px) saturate(1.05);backdrop-filter:blur(10px) saturate(1.05)}'+
+      '@media (prefers-reduced-transparency: reduce){#header{background:#FAF6EA!important;-webkit-backdrop-filter:none;backdrop-filter:none}}');
     // homepage mobile/contrast polish (Teri feedback): speaker photo squish, verse quote, gold contrast, hero spacing
     injectCSS('mc-home',
       '#mc .scr,#mc .goldtext{background-image:linear-gradient(165deg,#B0851C,#8A6A12 55%,#6E5410)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}'+
