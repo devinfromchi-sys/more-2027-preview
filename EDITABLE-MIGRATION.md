@@ -46,6 +46,44 @@ native content, not the injected content.
 4. Mission & Purpose — native is empty, needs a full build.
 5. Homepage last (most custom); likely stays largely code with a few native-editable text areas.
 
+
+## OUR STORY — progress (2026-07-13)
+Native page fixes DONE + saved (invisible to visitors; injector still overrides):
+- Button "Join Us at MORE 2026" -> "**Join Us at MORE 2027**" (link /tickets was already correct)
+- Banner heading "About" -> "**Our Story**" (brand color span preserved)
+- **5 em dashes -> commas** across Teri's story, mission bullet, and Salvation paragraph.
+  All `<em>` italics preserved (verified by counting `<em>` before/after each edit).
+Verified natively: banner OK, button 2027, 0 dashes, 0 horizontal overflow.
+Verified live (both viewports): unchanged, 0 JS errors, injector still active.
+
+### Squarespace editor methods that WORK (use these, they are proven)
+- **Button block text:** select block -> pencil icon -> the Content panel TEXT field is a React
+  input, so set it with the native setter, not `.value=`:
+  `Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(input, txt)`
+  then dispatch `input` + `change`.
+- **Character-level text edit that preserves inline formatting** (do NOT replace whole paragraphs,
+  it destroys `<em>`/`<u>`/color spans): walk text nodes, build a `Range` around just the target
+  characters, `sel.removeAllRanges(); sel.addRange(range)`, then
+  `document.execCommand('insertText', false, replacement)` and dispatch `input` on the
+  `[contenteditable="true"]` ancestor. Verify by counting inline tags before/after.
+- Canvas scroll: programmatic `scrollTop` is LOCKED; use real mouse-wheel scroll over the canvas
+  (~25 ticks at a time) and re-measure `getBoundingClientRect` between scrolls.
+- Coordinates: `computer` clicks use SCREENSHOT pixel space; JS rects are real pixels. Scale by
+  (screenshot width / window.innerWidth) before clicking.
+- In the editor all native sections are VISIBLE even though the injector also renders, so native
+  blocks can be edited without removing the injector first.
+
+## BLOCKER before removing mc-story.js from the loader
+1. **Header contrast.** `#header` background is `rgba(0,0,0,0)` (transparent) site-wide. The native
+   page has a full-bleed floral banner behind it, so the nav sits on busy florals and is hard to
+   read. The injector hid this by covering the banner with a solid hero. Needs a scrim/solid
+   header background before the flip. Squarespace marks these pages `body.tweak-transparent-header`.
+2. **Content parity.** The injected page has content the native page does NOT:
+   - "2025 and 2026: Where We Have Been" + 2025/2026 Featured Guests
+   - Impact bullets (hundreds saved each year, nonprofit partners, ASL via Sonshine Interpreting)
+   Removing the injector without adding these natively LOSES that content. Decide: add natively, or
+   drop. (Native page uniquely has Vision, Mission, Spiritual Purpose, full Statement of Belief.)
+
 ## Deploy flow reminder (DEPLOY.md)
 Pushing to this repo does NOT change the live site. Release = push -> `node tools/mkloader.mjs` ->
 paste `tools/loader.html` into Settings > Advanced > Code Injection (keep the Google Fonts lines)
