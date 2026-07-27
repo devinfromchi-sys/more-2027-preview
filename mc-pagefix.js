@@ -96,7 +96,27 @@
     }
     try{ if(window.localStorage && localStorage.getItem('mcdebug')) console.log('mc-pagefix', location.pathname, JSON.stringify(r)); }catch(e){}
   }
+  // Interior injected pages (#mcpg/#mcsp) start at top:0 while the native Squarespace header is an
+  // absolute/fixed overlay, so page titles render underneath it. Pad the first section to clear it.
+  function fixHeaderClearance(){
+    try{
+      var wrap=document.querySelector('#mcpg,#mcsp'); if(!wrap) return;
+      var hd=document.querySelector('#header'); if(!hd) return;
+      var hpos=getComputedStyle(hd).position;
+      if(hpos!=='absolute'&&hpos!=='fixed') return; // static header already reserves its own space
+      var hh=hd.getBoundingClientRect().height; if(!(hh>0)) return;
+      var sec=wrap.firstElementChild; if(!sec) return;
+      if(!sec.getAttribute('data-mc-basepad')){
+        sec.setAttribute('data-mc-basepad', parseFloat(getComputedStyle(sec).paddingTop)||0);
+      }
+      var base=parseFloat(sec.getAttribute('data-mc-basepad'))||0;
+      var need=Math.round(hh+18);
+      sec.style.paddingTop=Math.max(base,need)+'px';
+    }catch(e){}
+  }
   function run(){ apply(); [400,1200,2500,4500,7000].forEach(function(d){setTimeout(apply,d);});
-    if(window.MutationObserver){ var mo=new MutationObserver(function(){apply();}); try{ mo.observe(document.body,{childList:true,subtree:true}); setTimeout(function(){mo.disconnect();},9000); }catch(e){} } }
+    fixHeaderClearance(); [300,900,1800,3500].forEach(function(d){setTimeout(fixHeaderClearance,d);});
+    window.addEventListener('resize',fixHeaderClearance); window.addEventListener('load',fixHeaderClearance);
+    if(window.MutationObserver){ var mo=new MutationObserver(function(){apply();fixHeaderClearance();}); try{ mo.observe(document.body,{childList:true,subtree:true}); setTimeout(function(){mo.disconnect();},9000); }catch(e){} } }
   if(document.readyState!=='loading') run(); else document.addEventListener('DOMContentLoaded',run);
 })();
