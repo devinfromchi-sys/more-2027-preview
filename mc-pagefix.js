@@ -56,6 +56,12 @@
     // behind it, so nav text crossed cream AND dark foliage. Cream scrim keeps the nav on a stable
     // light backdrop (bronze #7a5c10 on this scrim stays above 5:1 even over the darkest leaves).
     // Gradient is the guarantee; backdrop-filter is progressive enhancement only.
+    // STOPGAP (2026-07-27): the site-wide footer newsletter blurb is NATIVE text still saying
+    // "Tickets go live August 1." The confirmed on-sale date is August 20, 2026. The Squarespace
+    // editor was unresponsive at deploy time, so this patches it for visitors on every page.
+    // TODO: correct the native footer text (footer newsletter block) and DELETE this matcher.
+    r.footerAug = setText('Tickets go live August 1.',
+      'Sign up for updates and to be first in line for early bird pricing. Tickets go live August 20.');
     injectCSS('mc-hdr-legible',
       '#header{background:linear-gradient(180deg,rgba(250,246,234,.96) 0%,rgba(250,246,234,.94) 72%,rgba(250,246,234,.80) 100%)!important;-webkit-backdrop-filter:blur(10px) saturate(1.05);backdrop-filter:blur(10px) saturate(1.05)}'+
       '@media (prefers-reduced-transparency: reduce){#header{background:#FAF6EA!important;-webkit-backdrop-filter:none;backdrop-filter:none}}');
