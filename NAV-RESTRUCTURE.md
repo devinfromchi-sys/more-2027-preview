@@ -41,3 +41,41 @@ CSS can force all ten onto one line, but only by shrinking nav text to about 11p
 (`font-size:.72rem; letter-spacing:.02em; padding:0 7px`, tested: rows=1 at both 1440 and 1280).
 NOT applied, because shrinking nav text undercuts the contrast/legibility work already done and
 it leaves ten cluttered items. Available on request as an interim.
+
+---
+
+## UPDATE 2026-07-27: drag IS partly automatable. Precise boundary found.
+
+My earlier "drag is not automatable" was WRONG. The Pages panel uses **dnd-kit**
+(`aria-roledescription="sortable"`, `DndDescribedBy-*`). The mistake was dispatching events at the
+row; the sensor lives on a **child drag handle**.
+
+### The technique that WORKS (reordering)
+```js
+const props = n => { const k = Object.keys(n).find(x=>/^__reactProps/.test(x)); return k ? n[k] : null; };
+const row    = [...document.querySelectorAll('[aria-roledescription="sortable"]')]
+                 .find(n => n.textContent.trim().startsWith(LABEL));
+const handle = [...row.querySelectorAll('*')]
+                 .find(c => { const p = props(c); return p && typeof p.onMouseDown === 'function'; });
+// mousedown on the HANDLE, then mousemove on DOCUMENT, then mouseup on DOCUMENT
+```
+Split it across TWO tool calls (lift, then glide+drop) or the CDP eval times out mid-drag and
+leaves the row stuck in a drag; `Escape` cancels cleanly and restores order.
+
+### What works vs what does not
+| Operation | Result |
+|---|---|
+| **Reorder within a list** | **WORKS**, persists to the live site (verified twice) |
+| Nest a page INTO a dropdown | FAILS. Item reorders instead; dropdown stays "empty". Tried the empty placeholder zone, the folder row, and an indented drop with hover dwell. |
+| Move between lists (Main Navigation -> Hidden) | FAILS. Item stays in Main Navigation. |
+
+Nesting and cross-list moves evidently need a real trusted pointer, or a droppable that synthetic
+events do not activate.
+
+### DONE via reorder
+**Tickets is now first** in the nav (primary action first). Verified live, 10 items, 0 overflow,
+0 JS errors, no stray dropdown left behind.
+
+### So the manual step is now SMALLER
+Devin only needs the nesting drags. Everything else can be automated. Create the two dropdowns and
+drag the six pages in, plus Home to Hidden, per the steps above.
