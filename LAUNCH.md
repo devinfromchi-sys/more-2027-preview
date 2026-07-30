@@ -48,3 +48,10 @@ Update `tools/pages.json` expectations first: allow ticketspice.com anchors ON P
 - Native ticketspice body links on /, /speakers, /our-story (crawler-only; runtime-rewritten) —
   becomes IRRELEVANT after launch if pagefix rewrite is removed (step 4), but fix natively for cleanliness.
 - Recap video for homepage hero: pending file/link from Teri/Ryan.
+
+## LAUNCH DAY: also swap the hero CTA label
+The homepage hero CTA (injected by `mc-pagefix.js`, class `.mc-herocta-box`) currently reads
+**"View Ticket Details"** and points at `/tickets`, because tickets are not on sale until Aug 20.
+On launch day change the label to **"Get Tickets"** and point it at the live TicketSpice URL.
+Remember the pagefix rule that rewrites `ticketspice.com` links to `/tickets` must be changed
+first, or the new link will be rewritten straight back.

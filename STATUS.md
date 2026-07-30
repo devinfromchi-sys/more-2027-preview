@@ -1,7 +1,7 @@
 # MORE 2027 — project status
 **Last verified: 2026-07-27.** Live health check: **20/20 clean** (10 pages x desktop + mobile):
 no wrong dates, no bad phone number, no horizontal overflow, no broken images, no JS errors.
-Live pin: `98261e2`. Read this file first; the others are detail.
+Live pin: `93b9a65`. Read this file first; the others are detail.
 
 ---
 
@@ -64,11 +64,17 @@ Detail in **EDITABLE-MIGRATION.md**.
   `mc-pagefix.js`**, not in the Squarespace text, because the editor was unresponsive at deploy
   time. Visitors see the right thing. TODO: fix the native footer text and delete the matcher
   (it is flagged with a TODO in the code).
-- **Homepage hero** is native Squarespace and still uses a background image named
-  `MORE 2026 Slides (1).png`, and the hero video shows a **"MEREDITH ANDREWS" banner** in some
-  frames (she was a 2025 guest). Consider swapping the video or setting a poster frame.
-- **Hero has no call to action.** Mockup built and approved in principle: add When/Where plus
-  "Get Tickets" and "See Speakers" buttons to fill the empty right column.
+- **Hero video** shows a **"MEREDITH ANDREWS" banner** in some frames (she was a 2025 guest).
+  Consider swapping the video or setting a poster frame that avoids it.
+  (The background image is named `MORE 2026 Slides (1).png` but is only decorative florals and
+  sparkles, it does not display "2026". Filename only, not a content problem.)
+- ~~Hero has no call to action.~~ **DONE 2026-07-27.** Added When/Where plus "View Ticket Details"
+  and "See Speakers" to both the desktop hero and the phone hero. Label is deliberately
+  "View Ticket Details" because tickets are not live until Aug 20; swap to "Get Tickets" on
+  launch day (noted in LAUNCH.md). NOTE: this is injected by `mc-pagefix.js`, because the
+  hero's own native button is orphaned at grid-area 32/3/34/9, outside the section's row
+  count, so Squarespace collapses it to 0x0 and repositioning needs a fluid-engine drag.
+  TODO: reposition or delete that orphaned native button, then this injection can go.
 - **"You belong here."** on the homepage photo band is gold script on a busy purple photo and is
   effectively unreadable. Needs a scrim or repositioning.
 - Legal docs still need the `[bracket]` fills and an attorney review.
