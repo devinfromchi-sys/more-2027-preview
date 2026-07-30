@@ -65,6 +65,14 @@
     injectCSS('mc-hdr-legible',
       '#header{background:linear-gradient(180deg,rgba(250,246,234,.96) 0%,rgba(250,246,234,.94) 72%,rgba(250,246,234,.80) 100%)!important;-webkit-backdrop-filter:blur(10px) saturate(1.05);backdrop-filter:blur(10px) saturate(1.05)}'+
       '@media (prefers-reduced-transparency: reduce){#header{background:#FAF6EA!important;-webkit-backdrop-filter:none;backdrop-filter:none}}');
+    // 1.4.3 "You belong here." on the photo band. The global .goldtext override recolors gold to a
+    // dark bronze, which is right on CREAM but wrong here: this instance sits on a dark purple
+    // photo, so dark-on-dark. Use a pale gold there plus a stronger scrim, matching the white
+    // "TWO DAYS. ONE MORE FAMILY." line under it which already reads fine.
+    injectCSS('mc-moment-legible',
+      '#mc .moment .ov{background:linear-gradient(180deg,rgba(2,82,96,.52),rgba(97,17,62,.58))!important}'+
+      '#mc .moment .mtxt .s,#mc .moment .mtxt .s.goldtext{background-image:linear-gradient(165deg,#FFF7E2,#F6E3B0 55%,#EBCF86)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important;filter:drop-shadow(0 2px 8px rgba(0,0,0,.55))}'+
+      '#mc .moment .mtxt .b{text-shadow:0 2px 8px rgba(0,0,0,.45)}');
     // homepage mobile/contrast polish (Teri feedback): speaker photo squish, verse quote, gold contrast, hero spacing
     injectCSS('mc-home',
       '#mc .scr,#mc .goldtext{background-image:linear-gradient(165deg,#B0851C,#8A6A12 55%,#6E5410)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}'+
