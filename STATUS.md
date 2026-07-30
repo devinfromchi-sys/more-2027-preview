@@ -1,7 +1,7 @@
 # MORE 2027 — project status
 **Last verified: 2026-07-27.** Live health check: **20/20 clean** (10 pages x desktop + mobile):
 no wrong dates, no bad phone number, no horizontal overflow, no broken images, no JS errors.
-Live pin: `93b9a65`. Read this file first; the others are detail.
+Live pin: `f93c459`. Read this file first; the others are detail.
 
 ---
 
@@ -75,8 +75,10 @@ Detail in **EDITABLE-MIGRATION.md**.
   hero's own native button is orphaned at grid-area 32/3/34/9, outside the section's row
   count, so Squarespace collapses it to 0x0 and repositioning needs a fluid-engine drag.
   TODO: reposition or delete that orphaned native button, then this injection can go.
-- **"You belong here."** on the homepage photo band is gold script on a busy purple photo and is
-  effectively unreadable. Needs a scrim or repositioning.
+- ~~"You belong here." unreadable~~ **DONE 2026-07-27.** Root cause was self inflicted: the global
+  `.goldtext` override recolors gold to a dark bronze, correct on CREAM but it put dark text on a
+  dark purple photo. Fixed with a pale gold gradient + stronger scrim + drop shadow, scoped to
+  `#mc .moment` only so cream pages keep the bronze. Verified desktop and mobile.
 - Legal docs still need the `[bracket]` fills and an attorney review.
 - TicketSpice 2027 form still to be built; SMS opt in needs "Reply HELP for help" for compliance.
 
