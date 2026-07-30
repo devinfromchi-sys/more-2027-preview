@@ -36,7 +36,7 @@
       try{[].forEach.call(document.querySelectorAll('h1'),function(h){ if(/sparkle/i.test(h.textContent)&&!h.getAttribute('aria-label'))h.setAttribute('aria-label',"Sparkle, MORE Women's Conference 2027"); });}catch(e){}
       try{[].forEach.call(document.querySelectorAll('h2'),function(h){ if(/^\s*in\s+2027\s*$/i.test(h.textContent)){h.setAttribute('role','presentation');h.setAttribute('aria-hidden','true');} });}catch(e){}
       // 2.2.2 countdown: name it + keep AT from being interrupted each second (dates also stated in page text)
-      try{var t=document.querySelector('#more-countdown,.timer'); if(t&&!t.getAttribute('data-mca')){t.setAttribute('role','timer');t.setAttribute('aria-label','Countdown to when tickets go live, August 1');t.setAttribute('aria-hidden','true');t.setAttribute('data-mca','1');}}catch(e){}
+      try{var t=document.querySelector('#more-countdown,.timer'); if(t&&!t.getAttribute('data-mca')){t.setAttribute('role','timer');t.setAttribute('aria-label','Countdown to when tickets go live, August 20');t.setAttribute('aria-hidden','true');t.setAttribute('data-mca','1');}}catch(e){}
       // 2.4.4 unique names for repeated "Visit website" links
       try{[].forEach.call(document.querySelectorAll('a[aria-label="Visit website"]'),function(a){var h=a.getAttribute('href')||'';var d=h.replace(/^https?:\/\//,'').replace(/^www\./,'').split('/')[0];if(d)a.setAttribute('aria-label','Visit '+d);});}catch(e){}
     }
@@ -79,23 +79,23 @@
     // empty gap under the lead paragraph. This injects the CTA after the lead paragraph instead.
     // TODO: when the orphaned native button is repositioned (or deleted) in the editor, this can go.
     if(p===''||p==='/'||p==='/moreconference'){
-      injectCSS('mc-herocta',
-        '#mc-herocta{margin-top:26px;font-family:Inter,sans-serif}'+
-        '#mc-herocta .mc-hc-facts{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:20px}'+
-        '#mc-herocta .mc-hc-k{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#7a5c10;font-weight:600}'+
-        '#mc-herocta .mc-hc-v{font-family:"Times New Roman",Times,serif;font-weight:600;color:#156B6F;font-size:1.12rem;line-height:1.22}'+
-        '#mc-herocta .mc-hc-btns{display:flex;gap:12px;flex-wrap:wrap}'+
-        '#mc-herocta a{display:inline-flex;align-items:center;gap:9px;padding:1em 1.9em;border-radius:4px;font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:.2s}'+
-        '#mc-herocta a.mc-hc-primary{background:#9B1762;color:#fff}#mc-herocta a.mc-hc-primary:hover{background:#7d1250}'+
-        '#mc-herocta a.mc-hc-secondary{border:1.6px solid #156B6F;color:#156B6F}#mc-herocta a.mc-hc-secondary:hover{background:#156B6F;color:#fff}'+
-        '@media(max-width:780px){#mc-herocta{margin-top:20px;text-align:center}#mc-herocta .mc-hc-facts{justify-content:center;gap:18px}#mc-herocta .mc-hc-btns{justify-content:center}#mc-herocta a{flex:1 1 auto;justify-content:center}}');
+      injectCSS('mc-herocta-css',
+        '#mc-herocta-box{margin-top:26px;font-family:Inter,sans-serif}'+
+        '#mc-herocta-box .mc-hc-facts{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:20px}'+
+        '#mc-herocta-box .mc-hc-k{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#7a5c10;font-weight:600}'+
+        '#mc-herocta-box .mc-hc-v{font-family:"Times New Roman",Times,serif;font-weight:600;color:#156B6F;font-size:1.12rem;line-height:1.22}'+
+        '#mc-herocta-box .mc-hc-btns{display:flex;gap:12px;flex-wrap:wrap}'+
+        '#mc-herocta-box a{display:inline-flex;align-items:center;gap:9px;padding:1em 1.9em;border-radius:4px;font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:.2s}'+
+        '#mc-herocta-box a.mc-hc-primary{background:#9B1762;color:#fff}#mc-herocta-box a.mc-hc-primary:hover{background:#7d1250}'+
+        '#mc-herocta-box a.mc-hc-secondary{border:1.6px solid #156B6F;color:#156B6F}#mc-herocta-box a.mc-hc-secondary:hover{background:#156B6F;color:#fff}'+
+        '@media(max-width:780px){#mc-herocta-box{margin-top:20px;text-align:center}#mc-herocta-box .mc-hc-facts{justify-content:center;gap:18px}#mc-herocta-box .mc-hc-btns{justify-content:center}#mc-herocta-box a{flex:1 1 auto;justify-content:center}}');
       try{
-        if(!document.getElementById('mc-herocta')){
+        if(!document.getElementById('mc-herocta-box')){
           var lead=null, ps=document.querySelectorAll('p');
           for(var i=0;i<ps.length;i++){ if(/We were created to shine/i.test(ps[i].textContent||'')){ lead=ps[i]; break; } }
           if(lead && lead.parentNode){
             var box=document.createElement('div');
-            box.id='mc-herocta';
+            box.id='mc-herocta-box';
             box.innerHTML='<div class="mc-hc-facts">'+
               '<div><div class="mc-hc-k">When</div><div class="mc-hc-v">April 16 to 17, 2027</div></div>'+
               '<div><div class="mc-hc-k">Where</div><div class="mc-hc-v">Tinley Park Convention Center</div></div>'+
