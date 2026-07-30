@@ -72,6 +72,43 @@
       '#mc .spk .ph{height:0!important;padding-bottom:128%!important;position:relative!important;overflow:hidden!important}#mc .spk .ph img{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 16%!important}'+
       '@media(max-width:780px){#mc .hero{overflow:visible!important}#mc .hero .wrap{padding-top:40px!important}#mc .scr{line-height:1.35!important;margin-bottom:12px!important;padding-bottom:6px!important}#mc .yr{line-height:1.2!important;margin-top:4px!important;padding-bottom:8px!important}}'+
       '#mc .tiers .price{font-family:Anton,sans-serif!important;font-size:2.15rem!important;font-weight:400!important;color:#156B6F!important;font-style:normal!important;letter-spacing:.02em!important}#mc .tiers .price .mcvip{display:block;font-family:Inter,sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#9B1762;margin-top:6px}');
+    // HERO CTA (2026-07-27). The native hero had a "Grab Your Tickets" button, but it sits at
+    // grid-area 32/3/34/9 which is outside the section's row count, so Squarespace collapses it to
+    // 0x0 (visibility:hidden, inherited from its .fe-block wrapper). Repositioning it needs a
+    // fluid-engine drag, which cannot be automated. So the hero had NO call to action and a large
+    // empty gap under the lead paragraph. This injects the CTA after the lead paragraph instead.
+    // TODO: when the orphaned native button is repositioned (or deleted) in the editor, this can go.
+    if(p===''||p==='/'||p==='/moreconference'){
+      injectCSS('mc-herocta',
+        '#mc-herocta{margin-top:26px;font-family:Inter,sans-serif}'+
+        '#mc-herocta .mc-hc-facts{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:20px}'+
+        '#mc-herocta .mc-hc-k{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#7a5c10;font-weight:600}'+
+        '#mc-herocta .mc-hc-v{font-family:"Times New Roman",Times,serif;font-weight:600;color:#156B6F;font-size:1.12rem;line-height:1.22}'+
+        '#mc-herocta .mc-hc-btns{display:flex;gap:12px;flex-wrap:wrap}'+
+        '#mc-herocta a{display:inline-flex;align-items:center;gap:9px;padding:1em 1.9em;border-radius:4px;font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:.2s}'+
+        '#mc-herocta a.mc-hc-primary{background:#9B1762;color:#fff}#mc-herocta a.mc-hc-primary:hover{background:#7d1250}'+
+        '#mc-herocta a.mc-hc-secondary{border:1.6px solid #156B6F;color:#156B6F}#mc-herocta a.mc-hc-secondary:hover{background:#156B6F;color:#fff}'+
+        '@media(max-width:780px){#mc-herocta{margin-top:20px;text-align:center}#mc-herocta .mc-hc-facts{justify-content:center;gap:18px}#mc-herocta .mc-hc-btns{justify-content:center}#mc-herocta a{flex:1 1 auto;justify-content:center}}');
+      try{
+        if(!document.getElementById('mc-herocta')){
+          var lead=null, ps=document.querySelectorAll('p');
+          for(var i=0;i<ps.length;i++){ if(/We were created to shine/i.test(ps[i].textContent||'')){ lead=ps[i]; break; } }
+          if(lead && lead.parentNode){
+            var box=document.createElement('div');
+            box.id='mc-herocta';
+            box.innerHTML='<div class="mc-hc-facts">'+
+              '<div><div class="mc-hc-k">When</div><div class="mc-hc-v">April 16 to 17, 2027</div></div>'+
+              '<div><div class="mc-hc-k">Where</div><div class="mc-hc-v">Tinley Park Convention Center</div></div>'+
+              '</div><div class="mc-hc-btns">'+
+              '<a class="mc-hc-primary" href="/tickets">View Ticket Details <span aria-hidden="true">&rarr;</span></a>'+
+              '<a class="mc-hc-secondary" href="/speakers">See Speakers</a>'+
+              '</div>';
+            lead.parentNode.insertBefore(box, lead.nextSibling);
+            r.heroCta=1;
+          }
+        }
+      }catch(e){}
+    }
     // homepage: confirmed 2027 ticket prices (Teri) — Sat $69 (VIP $99), Full Weekend $99, VIP Experience/Both-Days VIP $129
     try{[].forEach.call(document.querySelectorAll('#mc .tiers .tier'),function(t){var h=((t.querySelector('h3')||{}).textContent||'').toLowerCase();var pr=t.querySelector('.price');if(!pr||pr.getAttribute('data-mcp'))return;var v=null,note='';if(h.indexOf('saturday')>-1){v='$69';note='VIP upgrade: $99';}else if(h.indexOf('vip')>-1){v='$129';}else if(h.indexOf('weekend')>-1||h.indexOf('full')>-1){v='$99';}if(v){pr.innerHTML=v+(note?'<span class="mcvip">'+note+'</span>':'');pr.setAttribute('data-mcp','1');}});}catch(e){}
     // /tickets page: confirmed prices on tiers; drop Friday-only ticket + group rates (Teri: none this year)
