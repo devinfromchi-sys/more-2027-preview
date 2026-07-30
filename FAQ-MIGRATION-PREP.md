@@ -62,13 +62,13 @@ hardcoded on the page, so ticket pricing changes do not affect it.
 # ANSWERS FROM RYAN'S SPEC (2027 MORE Women's Conference Details (2).docx, received 2026-07-27)
 This doc resolves nearly every open question AND contradicts several things currently live.
 
-## CRITICAL: ticket on-sale date is WRONG on the live site
+## ~~CRITICAL: ticket on-sale date is WRONG on the live site~~ RESOLVED 2026-07-27
 - **Spec says tickets go live August 20th, 2026** (appears 5 times in the doc).
 - **Live site says "August 1"** on `/`, `/tickets`, and `/faqs`, and the homepage countdown was
   reading **4 days** remaining. It would hit zero on Aug 1 and imply tickets are live 19 days early.
 - Early bird per spec: **$15 off, applied automatically at checkout, Aug 20 2026 to Oct 31 2026.**
-- ACTION NEEDED: confirm Aug 20 is final, then update countdown target (`mc-inject.js` line ~18)
-  and every "August 1" string across homepage, tickets, FAQ.
+- ~~ACTION NEEDED~~ **DONE:** Devin confirmed Aug 20. Countdown target moved to 2026-08-20 and all
+  16 "August 1" strings updated across homepage, tickets, FAQ, speakers + the footer line.
 
 ## Meet and greets (this was the blocking question for FAQ)
 - **Friday: JJ Barrows** meet and greet + book signing, included with Both Days and VIP Both Days.
