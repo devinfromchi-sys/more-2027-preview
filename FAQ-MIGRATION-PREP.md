@@ -18,7 +18,7 @@ hardcoded on the page, so ticket pricing changes do not affect it.
 
 | # | Item | Current (native) | Correct for 2027 | Needs |
 |---|---|---|---|---|
-| A1 | **Theme** (Q "What is the theme this year?") | "A New Thing", Isaiah 43:18 to 19 | **"Sparkle", Zechariah 9:16** | none, confirmed |
+| A1 | ~~**Theme**~~ **DONE 2026-07-27** (Q "What is the theme this year?") | "A New Thing", Isaiah 43:18 to 19 | **"Sparkle", Zechariah 9:16** | none, confirmed |
 | A2 | **Meet and Greet feature section** (top of page, with photo + Spotify link) | Meredith Andrews Meet and Greet, raffled backstage at Saturday lunch | 2027 has a **JJ Barrows meet and greet included for all Friday attendees** | **Ryan** to confirm this replaces the raffle |
 | A3 | Q "What is the Meredith Andrews Meet and Greet raffle?" | raffle mechanics, door prizes, sponsors | replace or delete | **Ryan** |
 | A4 | Q "Will Lisa Harper, Masey McClain, JJ Barrows or Meredith Andrews be at Even MORE?" answer names Masey McLain | 2026 guests | Friday features **Audra Smith and Debbie Del Priore, hosted by Stephanie Reynolds**; JJ Barrows meet and greet | rewrite question + answer |
@@ -29,21 +29,21 @@ hardcoded on the page, so ticket pricing changes do not affect it.
 
 | # | Item | Detail |
 |---|---|---|
-| B1 | **6 jump links 404** | The FAQ category links (General Info, Ticketing and Check-in, Disability Accommodations, Lunch, Blooming Boutique, Friday Night) point to `/event-faq-1#...`. **`/event-faq-1` returns HTTP 404.** They must become same-page anchors (`#...`). The injector already patches this at runtime, so it is invisible today but breaks the moment we migrate, and crawlers see it now. |
+| B1 | ~~**6 jump links 404**~~ **DONE 2026-07-27** | The FAQ category links (General Info, Ticketing and Check-in, Disability Accommodations, Lunch, Blooming Boutique, Friday Night) point to `/event-faq-1#...`. **`/event-faq-1` returns HTTP 404.** They must become same-page anchors (`#...`). The injector already patches this at runtime, so it is invisible today but breaks the moment we migrate, and crawlers see it now. |
 | B2 | **Dashes** | 2 em dashes in page text, plus 12 accordion answers contain em/en dashes. Lower priority polish, per the no-dash rule. |
 
 ## C. VERIFY with Teri (logistics likely unchanged, but they are event facts)
 - Doors: 7:30 am registration, 7:45 am VIP, 8:15 am General Admission
 - Lunch break: 11:30 am to 1:00 pm (90 minutes); afternoon session resumes 1:00 pm
 - Coffee station until 2:45 pm
-- VIP: 150 reserved seats, separate registration at the West Entrance
+- VIP: 150 reserved seats  <-- CONFLICTS with spec (200 VIP tickets). Asked Ryan 2026-07-27.
 - Check-in: registration hall in the South Pavilion
 - Hotel: EVEN Hotel, group rate code **MWC**, room block expires **April 1** (confirm April 1, **2027**)
 - Boutique located in the North Hall
-- Age policy: girls 12 and older
+- Age policy: girls 12 and older  <-- CONFLICTS with spec (children not allowed). Asked Ryan 2026-07-27.
 
 ## D. Execution order (once A is answered)
-1. Fix B1 (6 jump links) and A1 (theme) natively. Both are unambiguous.
+1. ~~Fix B1 (6 jump links) and A1 (theme) natively.~~ **DONE and saved 2026-07-27.**
 2. Apply A2 to A6 once Ryan answers.
 3. Optional: B2 dash cleanup.
 4. Remove `["/faqs"], "mc-faq.js"` from ROUTES in `tools/mkloader.mjs`, regenerate, re-pin, paste
@@ -98,8 +98,7 @@ NOTE: the injected 2027 copy currently says Friday features "Audra Smith and Deb
 hosted by Stephanie Reynolds". The spec lists only **Debbie Del Priore**. CONFIRM with Ryan/Teri.
 
 ## Answered incidentally
-- **Phone: (815) 409 0144** is correct (appears in the spec). The Volunteer page's
-  **815 406 0144 is the typo** and should be corrected.
+- **Phone RESOLVED:** (815) 409 0144 is correct; the Volunteer page typo was fixed natively 2026-07-27.
 - Hotel: EVEN Hotel Chicago Tinley Park Convention Center by IHG; **group code "coming soon"**
   (native FAQ currently says code MWC, verify); room block deadline **April 1**.
 - Lunch: $18, Saturday only, required selection per ticket, no capacity limit, non refundable.

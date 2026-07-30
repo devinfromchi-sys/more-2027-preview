@@ -1,0 +1,95 @@
+# MORE 2027 — project status
+**Last verified: 2026-07-27.** Live health check: **20/20 clean** (10 pages x desktop + mobile):
+no wrong dates, no bad phone number, no horizontal overflow, no broken images, no JS errors.
+Live pin: `98261e2`. Read this file first; the others are detail.
+
+---
+
+## 1. NEXT UP (in priority order)
+
+### A. Devin, about 2 minutes — finish the navigation
+The nav is 10 flat items that wrap onto **two lines** at every desktop width. This is the single
+biggest thing making the site look unfinished. Steps are in **NAV-RESTRUCTURE.md**:
+- Pages > **+** > **DROPDOWN**, name it **"Event Info"**, then drag in FAQs, Boutique, Volunteer
+- Same again for **"About"**, drag in Our Story, Mission, Sponsors
+- Drag **Home** into Hidden (the logo already links home)
+
+Result: **5 top level items** (Tickets, Speakers, Event Info, About, Contact) on one line.
+Caution: do NOT create a dropdown until you are ready to fill it, an empty one shows live.
+I can reorder items but cannot nest them (see NAV-RESTRUCTURE.md for the exact boundary).
+
+### B. Waiting on Ryan — asked 2026-07-27, draft is in Gmail
+1. **VIP capacity conflict.** Spec caps VIP at **200 tickets**; the FAQ says a **150 seat** VIP
+   section. If both are true, 50 VIP buyers have no VIP seat. Need both numbers separately.
+2. **Children.** Spec says children not allowed (infants OK, nursing room); FAQ says girls 12+
+   are invited. Affects the FAQ and the ticket policy.
+3. **Friday lineup.** Spec lists only Debbie Del Priore; the site says Audra Smith and Debbie
+   Del Priore hosted by Stephanie Reynolds. Is Audra still on Friday, is Stephanie hosting?
+4. Assets: **2027 sponsorship PDF**, **1200x630 branded share image**, **2027 schedule PDF**,
+   and the **worship leader** once confirmed.
+
+### C. Then: FAQ goes natively editable
+Everything unambiguous is already done. Remaining work is blocked on B1 to B3 above.
+Full change map in **FAQ-MIGRATION-PREP.md**.
+
+### D. Then: Our Story goes natively editable
+Only blocker left is a content decision: the code version has a "2025 and 2026: Where We Have
+Been" section with past guests and impact stats that the native page lacks. Keep or drop?
+Detail in **EDITABLE-MIGRATION.md**.
+
+---
+
+## 2. DONE AND LIVE (2026-07-27)
+
+| Fix | Detail |
+|---|---|
+| **Ticket launch date** | Site said **August 1**; the real date is **August 20, 2026**. The countdown would have hit zero and announced tickets 19 days early. Countdown target plus 16 copy references updated across Home, Tickets, FAQ, Speakers, and the site wide footer line. |
+| **Header legibility** | `#header` was transparent over full bleed floral banners, so nav text crossed cream AND dark foliage. Added a cream scrim (gradient guaranteed, blur as enhancement). Verified 20/20. Homepage header pixel identical. |
+| **Interior page titles** | All 8 interior pages had their title rendering underneath the header on both desktop and mobile. Fixed site wide. |
+| **Mobile hero** | "Sparkle in 2027" collided with the logo and menu on phones. Fixed, verified at 360, 390 and 430px. |
+| **FAQ theme** | Said "A New Thing" (Isaiah 43:18-19), the **2026** theme. Now "Sparkle" (Zechariah 9:16). |
+| **FAQ jump links** | All 6 category links pointed at `/event-faq-1`, which **404s**. Now same page anchors. |
+| **Phone number** | Volunteer page said 815-**406**-0144. Correct is **(815) 409-0144** per Ryan's spec. Fixed natively. |
+| **Volunteer dates** | Dates card still said April 24-25, **2026**. Now April 16-17, **2027**. |
+| **Our Story** | Native content corrected: "Join Us at MORE **2027**", banner "Our Story", 5 em dashes removed with all italics preserved. |
+| **Nav labels** | "Blooming Boutique" -> "Boutique", "Mission & Purpose" -> "Mission" (nav label only; page titles and URLs untouched). **Tickets** moved to first position. |
+| **Footer year** | "(c) 2026" -> "(c) 2027" on all pages. |
+| **Speaker order** | Homepage now leads with Annie F. Downs, Sheila Walsh, JJ Barrows. |
+
+---
+
+## 3. KNOWN DEBT (small, tracked, not urgent)
+
+- **Footer newsletter line** ("Tickets go live August 20") is currently corrected by a **patch in
+  `mc-pagefix.js`**, not in the Squarespace text, because the editor was unresponsive at deploy
+  time. Visitors see the right thing. TODO: fix the native footer text and delete the matcher
+  (it is flagged with a TODO in the code).
+- **Homepage hero** is native Squarespace and still uses a background image named
+  `MORE 2026 Slides (1).png`, and the hero video shows a **"MEREDITH ANDREWS" banner** in some
+  frames (she was a 2025 guest). Consider swapping the video or setting a poster frame.
+- **Hero has no call to action.** Mockup built and approved in principle: add When/Where plus
+  "Get Tickets" and "See Speakers" buttons to fill the empty right column.
+- **"You belong here."** on the homepage photo band is gold script on a busy purple photo and is
+  effectively unreadable. Needs a scrim or repositioning.
+- Legal docs still need the `[bracket]` fills and an attorney review.
+- TicketSpice 2027 form still to be built; SMS opt in needs "Reply HELP for help" for compliance.
+
+---
+
+## 4. HOW TO DEPLOY (read before touching code)
+Pushing to the repo does **NOT** change the live site. See **DEPLOY.md**. Short version:
+```
+push  ->  node tools/mkloader.mjs  ->  paste tools/loader.html into
+Settings > Advanced > Code Injection (KEEP the Google Fonts lines)  ->  verify
+```
+The site loads all custom JS from **commit pinned, integrity checked** URLs, so a compromised
+GitHub account cannot change what visitors run.
+
+## 5. FILE MAP
+- **STATUS.md** (this file) — start here
+- **NAV-RESTRUCTURE.md** — the 2 minute nav steps + what drag automation can and cannot do
+- **FAQ-MIGRATION-PREP.md** — FAQ change map + everything Ryan's spec answered/contradicted
+- **EDITABLE-MIGRATION.md** — making pages editable for Teri + proven Squarespace editor techniques
+- **LAUNCH.md** — launch day runbook (includes the critical ticketspice rewrite gotcha)
+- **DEPLOY.md** — release process and rollback
+- **tools/** — `verify.mjs` (regression harness), `blob.mjs`, `mkloader.mjs`, `pages.json`

@@ -97,6 +97,8 @@ Pushing to this repo does NOT change the live site. Release = push -> `node tool
 paste `tools/loader.html` into Settings > Advanced > Code Injection (keep the Google Fonts lines)
 -> verify. Removing a page's injector = drop its ROUTES line, regenerate, paste.
 
-## Open questions for Devin
-- Volunteer page phone **815-406-0144** vs footer **815-409-0144** — which is correct?
-- Confirm the FAQ content for 2027 (is there a Meet & Greet this year? who?) before rewriting.
+## Open questions
+- RESOLVED: phone is (815) 409 0144; Volunteer typo fixed natively 2026-07-27.
+- RESOLVED: 2027 meet and greets per Ryan spec (Friday JJ Barrows included; Saturday Annie F. Downs
+  and Sheila Walsh, raffle only).
+- OPEN with Ryan: keep the "2025 and 2026: Where We Have Been" section on Our Story?
