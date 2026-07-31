@@ -17,13 +17,8 @@ if (!/^[0-9a-f]{40}$/.test(sha)) { console.error('need full 40-char sha'); proce
 // path(s) -> page injector. mc-pagefix.js loads on every page.
 const ROUTES = [
   [['/', '/moreconference'], 'mc-inject.js'],
-  [['/speakers'], 'mc-speakers.js'],
   [['/tickets'], 'mc-tickets.js'],
-  [['/faqs'], 'mc-faq.js'],
-  [['/volunteer'], 'mc-volunteer.js'],
   [['/mission-purpose'], 'mc-mission.js'],
-  [['/sponsors'], 'mc-sponsors.js'],
-  [['/blooming-boutique'], 'mc-boutique.js'],
 ];
 const FILES = ['mc-pagefix.js', ...ROUTES.map(r => r[1])];
 
