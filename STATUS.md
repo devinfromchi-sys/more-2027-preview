@@ -1,7 +1,9 @@
 # MORE 2027 — project status
 **Last verified: 2026-07-31.** FULL NATIVE MIGRATION COMPLETE: all 9 injected pages are now
-native Squarespace content Teri can edit AND drag. Live pin: `d8fda91` (loader ships ONLY mc-pagefix.js:
-a11y + header scrim + homepage hero CTA overlay + injected footer legal-links bar). Final regression: 20/20 clean
+native Squarespace content Teri can edit AND drag. Live pin: `d995f6b` (loader ships ONLY mc-pagefix.js:
+a11y + header scrim + injected footer legal-links bar). HERO IS FULLY NATIVE
+(button unhidden/relabeled + When/Where in the lead block, 2026-07-31 morning): zero code-painted
+content remains on any Teri-managed page.. Final regression: 20/20 clean
 (10 pages x desktop + mobile): 0 injectors, 0 stale 2026/guest refs, 0 console errors, 0 overflow.
 Countdown lives in a native movable CODE BLOCK on the homepage (target Aug 20). Footer newsletter
 "August 20" is native (pagefix footer matcher deleted). Read this file first; details below are
