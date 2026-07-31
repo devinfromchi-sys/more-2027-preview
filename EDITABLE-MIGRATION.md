@@ -38,6 +38,18 @@ native content, not the injected content.
 - Canvas scroll wedges after edits; scroll with the mouse wheel on a fresh editor entry.
 - Only ONE editing session at a time — never hold the editor while Teri is working.
 
+
+## HARD REQUIREMENT (Devin, 2026-07-27): Teri must edit AND MOVE things
+Not just text edits. The end state per page is fully native, draggable Squarespace sections and
+blocks. Consequences for the plan:
+- Anything custom that survives (countdown, widgets) goes in a **native Code Block inside a normal
+  section** so Teri can drag it like any block. No more injector-anchored elements on pages she
+  manages (injectors that insert next to native sections break when she rearranges them).
+- Speakers: prefer a native reorderable gallery/grid over the code carousel.
+- Homepage "stays largely code" is REVISED: homepage sections should become native and movable
+  too, with only the countdown as a Code Block. Migrate it like the other pages, last.
+- The two temporary code patches (footer newsletter line, hero CTA) must convert to native.
+
 ## Suggested order
 1. **FAQ** (proof page) — highest value: it is what Teri updates most, and its native content is
    stale so fixing it pays off twice (editable + accurate for crawlers).
