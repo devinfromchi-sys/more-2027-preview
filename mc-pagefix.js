@@ -62,48 +62,9 @@
       '@media (prefers-reduced-transparency: reduce){#header{background:#FAF6EA!important;-webkit-backdrop-filter:none;backdrop-filter:none}}');
     // mc-moment-legible + mc-home CSS REMOVED 2026-07-31: they styled the #mc injected homepage,
     // which is now fully native (injector retired).
-    // HERO CTA (2026-07-27). The native hero had a "Grab Your Tickets" button, but it sits at
-    // grid-area 32/3/34/9 which is outside the section's row count, so Squarespace collapses it to
-    // 0x0 (visibility:hidden, inherited from its .fe-block wrapper). Repositioning it needs a
-    // fluid-engine drag, which cannot be automated. So the hero had NO call to action and a large
-    // empty gap under the lead paragraph. This injects the CTA after the lead paragraph instead.
-    // TODO: when the orphaned native button is repositioned (or deleted) in the editor, this can go.
-    if(p===''||p==='/'||p==='/moreconference'){
-      injectCSS('mc-herocta-css',
-        '.mc-herocta-box{margin-top:26px;font-family:Inter,sans-serif}'+
-        '.mc-herocta-box .mc-hc-facts{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:20px}'+
-        '.mc-herocta-box .mc-hc-k{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:#7a5c10;font-weight:600}'+
-        '.mc-herocta-box .mc-hc-v{font-family:"Times New Roman",Times,serif;font-weight:600;color:#156B6F;font-size:1.12rem;line-height:1.22}'+
-        '.mc-herocta-box .mc-hc-btns{display:flex;gap:12px;flex-wrap:wrap}'+
-        '.mc-herocta-box a{display:inline-flex;align-items:center;gap:9px;padding:1em 1.9em;border-radius:4px;font-size:.78rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:.2s}'+
-        '.mc-herocta-box a.mc-hc-primary{background:#9B1762;color:#fff}.mc-herocta-box a.mc-hc-primary:hover{background:#7d1250}'+
-        '.mc-herocta-box a.mc-hc-secondary{border:1.6px solid #156B6F;color:#156B6F}.mc-herocta-box a.mc-hc-secondary:hover{background:#156B6F;color:#fff}'+
-        '@media(max-width:780px){.mc-herocta-box{margin-top:20px;text-align:center}.mc-herocta-box .mc-hc-facts{justify-content:center;gap:18px}.mc-herocta-box .mc-hc-btns{justify-content:center}.mc-herocta-box a{flex:1 1 auto;justify-content:center}}');
-      try{
-        // The homepage has TWO heroes: the native desktop one and the injected .mhero for phones.
-        // Insert a CTA after EACH lead paragraph so the visible breakpoint always has one.
-        var ps=document.querySelectorAll('p'), made=0;
-        for(var i=0;i<ps.length;i++){
-          var lead=ps[i];
-          if(!/We were created to shine/i.test(lead.textContent||'')) continue;
-          if(lead.getAttribute('data-mc-cta')) continue;
-          if(!lead.parentNode) continue;
-          var box=document.createElement('div');
-          box.className='mc-herocta-box';
-          box.innerHTML='<div class="mc-hc-facts">'+
-            '<div><div class="mc-hc-k">When</div><div class="mc-hc-v">April 16 to 17, 2027</div></div>'+
-            '<div><div class="mc-hc-k">Where</div><div class="mc-hc-v">Tinley Park Convention Center</div></div>'+
-            '</div><div class="mc-hc-btns">'+
-            '<a class="mc-hc-primary" href="/tickets">View Ticket Details <span aria-hidden="true">&rarr;</span></a>'+
-            '<a class="mc-hc-secondary" href="/speakers">See Speakers</a>'+
-            '</div>';
-          lead.parentNode.insertBefore(box, lead.nextSibling);
-          lead.setAttribute('data-mc-cta','1');
-          made++;
-        }
-        if(made) r.heroCta=made;
-      }catch(e){}
-    }
+    // HERO CTA overlay REMOVED 2026-07-31: the native hero button was unhidden, relabeled
+    // 'View Ticket Details' -> /tickets, and repositioned in the editor; the When/Where line now
+    // lives natively in the hero lead text block. Nothing on Teri's pages is code-painted anymore.
     // Tier-price painters + /tickets setText batch REMOVED 2026-07-31: the native tickets page is the
     // single source of truth ("exact pricing announced August 20"); the group-rates passage was removed
     // natively. Confirmed 2027 prices for launch day live in LAUNCH.md + the TicketSpice build sheet:
