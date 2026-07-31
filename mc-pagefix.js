@@ -45,12 +45,12 @@
   }
   function apply(){
     var p=location.pathname.toLowerCase(), r={};
-    [].forEach.call(document.querySelectorAll('a[href*="ticketspice.com"]'),function(a){a.setAttribute('href','/tickets');});
-    [].forEach.call(document.querySelectorAll('span,h1,h2,h3,p,div'),function(el){ if(el.children.length===0 && /^\s*2026\s*$/.test(el.textContent)){ el.textContent=el.textContent.replace('2026','2027'); } });
+    // ticketspice repoint + standalone 2026→2027 swap REMOVED 2026-07-31: native content is correct,
+    // and the repoint would break real TicketSpice links at the Aug 20 launch.
     // remove orphan "script>" text nodes left by a malformed page header injection (boutique)
     try{ var bd=document.body; if(bd){ for(var n=bd.firstChild;n;){ var nx=n.nextSibling; if(n.nodeType===3){ var v=(n.nodeValue||'').replace(/\s+/g,''); if(v==='script>'||v==='</script>'||v==='script></script>'||v==='script>script>'){ bd.removeChild(n); r.strayScript=1; } } n=nx; } } }catch(e){}
     // (mission-purpose "General 2" title patch removed 2026-07-08 — fixed natively in Page Settings SEO title)
-    injectCSS('mc-mcpg-fix','#mc,#mcpg{overflow-x:hidden}#mcpg .pg-title,#mcpg .pg-h,#mcpg .pg-eyebrow{overflow-wrap:anywhere}body.tweak-transparent-header #mcpg .pg-hero{padding-top:130px!important}@media(max-width:780px){#mcpg .pg-wrap{width:100%}#mcpg .pg-eyebrow{white-space:normal!important}#mcpg .pg-flor{max-width:42%}}');
+    // mc-mcpg-fix CSS REMOVED 2026-07-31: #mc/#mcpg injectors are retired, selectors matched nothing.
     a11y(p);
     // 1.4.3 header legibility: the site header is transparent and full-bleed banner imagery sits
     // behind it, so nav text crossed cream AND dark foliage. Cream scrim keeps the nav on a stable
@@ -104,17 +104,10 @@
         if(made) r.heroCta=made;
       }catch(e){}
     }
-    // homepage: confirmed 2027 ticket prices (Teri) — Sat $69 (VIP $99), Full Weekend $99, VIP Experience/Both-Days VIP $129
-    try{[].forEach.call(document.querySelectorAll('#mc .tiers .tier'),function(t){var h=((t.querySelector('h3')||{}).textContent||'').toLowerCase();var pr=t.querySelector('.price');if(!pr||pr.getAttribute('data-mcp'))return;var v=null,note='';if(h.indexOf('saturday')>-1){v='$69';note='VIP upgrade: $99';}else if(h.indexOf('vip')>-1){v='$129';}else if(h.indexOf('weekend')>-1||h.indexOf('full')>-1){v='$99';}if(v){pr.innerHTML=v+(note?'<span class="mcvip">'+note+'</span>':'');pr.setAttribute('data-mcp','1');}});}catch(e){}
-    // /tickets page: confirmed prices on tiers; drop Friday-only ticket + group rates (Teri: none this year)
-    if(/\/tickets/.test(p)){ try{
-      setText('Saturday Conference: The full main conference day on Saturday, April 17','Saturday Conference, $69 (VIP upgrade $99). The full main conference day on Saturday, April 17.');
-      setText('Full Weekend: Both the Friday evening session and the Saturday main conference','Full Weekend, $99 (VIP upgrade $129). Both the Friday evening session and the Saturday main conference.');
-      setText('VIP Experience: Our fullest weekend experience, with details announced August 1','VIP Experience, $129. The full weekend with premium VIP touches.');
-      var _f=smallestWith('Friday Night Only: Join us for the'); if(_f){(_f.closest('li')||_f).remove();}
-      var _g=smallestWith('Group rates may be available for those bringing a group'); if(_g){(_g.closest('li')||_g).remove();}
-      var _gp=smallestWith('Group rates may be available, and we will share'); if(_gp){_gp.innerHTML=_gp.innerHTML.replace(/\s*Planning to bring[^]*?Group rates may be available[^.]*\.\s*/i,' ').replace(/Group rates may be available[^.]*\.\s*/i,'');}
-    }catch(e){} }
+    // Tier-price painters + /tickets setText batch REMOVED 2026-07-31: the native tickets page is the
+    // single source of truth ("exact pricing announced August 20"); the group-rates passage was removed
+    // natively. Confirmed 2027 prices for launch day live in LAUNCH.md + the TicketSpice build sheet:
+    // Sat $69 (VIP upgrade $99), Full Weekend $99 (VIP $129), VIP Experience $129.
     // site-wide footer legal links (Privacy / Terms / Accessibility)
     try{ if(!document.getElementById('mc-legal-links')){ var foot=document.querySelector('#footer-sections')||document.querySelector('footer')||document.querySelector('.sqs-footer'); if(foot){ var bar=document.createElement('div'); bar.id='mc-legal-links'; bar.style.cssText='text-align:center;padding:16px 16px 30px;font-family:Inter,sans-serif;font-size:13px;letter-spacing:.05em'; bar.innerHTML='<a href="/privacy-policy" style="color:#156B6F;margin:0 9px;text-decoration:underline">Privacy Policy</a><a href="/terms-of-use" style="color:#156B6F;margin:0 9px;text-decoration:underline">Terms of Use</a><a href="/accessibility-statement" style="color:#156B6F;margin:0 9px;text-decoration:underline">Accessibility</a>'; foot.appendChild(bar); } } }catch(e){}
     // footer: stop the "scaled text" headings (MORE Conference / A Ministry of 58 Foundation) from overlapping on mobile
@@ -136,9 +129,9 @@
     }
     // NOTE: legacy de-2026 setText branches for our-story/sponsors/boutique removed 2026-07-08 —
     // those pages are fully rebuilt by their #mcpg injectors, so the old native strings no longer exist.
-    if(/\/sponsors(\/|$)/.test(p)){
-      try{ var _q=document.querySelector('img[alt="QAVA"]'); if(_q && !_q.closest('a')){ var _qa=document.createElement('a'); _qa.href='https://qava.tv/welcome'; _qa.target='_blank'; _qa.rel='noopener'; _qa.className='sp-logo-link'; _qa.setAttribute('aria-label','Visit QAVA website (opens in a new tab)'); _q.parentNode.insertBefore(_qa,_q); _qa.appendChild(_q); r.qava=1; } }catch(e){}
-    }
+    // QAVA link wrap REMOVED 2026-07-31: dead since the sponsors list section went native (alt no longer
+    // "QAVA"). Sponsor logos are unlinked by design in the simple list; enabling per-item buttons is a
+    // visible redesign — Devin's call. QAVA url if wanted: https://qava.tv/welcome
     try{ if(window.localStorage && localStorage.getItem('mcdebug')) console.log('mc-pagefix', location.pathname, JSON.stringify(r)); }catch(e){}
   }
   // Interior injected pages (#mcpg/#mcsp) start at top:0 while the native Squarespace header is an
