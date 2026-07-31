@@ -22,7 +22,6 @@ const ROUTES = [
   [['/faqs'], 'mc-faq.js'],
   [['/volunteer'], 'mc-volunteer.js'],
   [['/mission-purpose'], 'mc-mission.js'],
-  [['/our-story'], 'mc-story.js'],
   [['/sponsors'], 'mc-sponsors.js'],
   [['/blooming-boutique'], 'mc-boutique.js'],
 ];
