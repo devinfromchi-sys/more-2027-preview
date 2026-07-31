@@ -56,30 +56,12 @@
     // behind it, so nav text crossed cream AND dark foliage. Cream scrim keeps the nav on a stable
     // light backdrop (bronze #7a5c10 on this scrim stays above 5:1 even over the darkest leaves).
     // Gradient is the guarantee; backdrop-filter is progressive enhancement only.
-    // STOPGAP (2026-07-27): the site-wide footer newsletter blurb is NATIVE text still saying
-    // "Tickets go live August 1." The confirmed on-sale date is August 20, 2026. The Squarespace
-    // editor was unresponsive at deploy time, so this patches it for visitors on every page.
-    // TODO: correct the native footer text (footer newsletter block) and DELETE this matcher.
-    r.footerAug = setText('Tickets go live August 1.',
-      'Sign up for updates and to be first in line for early bird pricing. Tickets go live August 20.');
+    // footerAug matcher REMOVED 2026-07-31: the native footer newsletter text now says August 20.
     injectCSS('mc-hdr-legible',
       '#header{background:linear-gradient(180deg,rgba(250,246,234,.96) 0%,rgba(250,246,234,.94) 72%,rgba(250,246,234,.80) 100%)!important;-webkit-backdrop-filter:blur(10px) saturate(1.05);backdrop-filter:blur(10px) saturate(1.05)}'+
       '@media (prefers-reduced-transparency: reduce){#header{background:#FAF6EA!important;-webkit-backdrop-filter:none;backdrop-filter:none}}');
-    // 1.4.3 "You belong here." on the photo band. The global .goldtext override recolors gold to a
-    // dark bronze, which is right on CREAM but wrong here: this instance sits on a dark purple
-    // photo, so dark-on-dark. Use a pale gold there plus a stronger scrim, matching the white
-    // "TWO DAYS. ONE MORE FAMILY." line under it which already reads fine.
-    injectCSS('mc-moment-legible',
-      '#mc .moment .ov{background:linear-gradient(180deg,rgba(2,82,96,.52),rgba(97,17,62,.58))!important}'+
-      '#mc .moment .mtxt .s,#mc .moment .mtxt .s.goldtext{background-image:linear-gradient(165deg,#FFF7E2,#F6E3B0 55%,#EBCF86)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important;filter:drop-shadow(0 2px 8px rgba(0,0,0,.55))}'+
-      '#mc .moment .mtxt .b{text-shadow:0 2px 8px rgba(0,0,0,.45)}');
-    // homepage mobile/contrast polish (Teri feedback): speaker photo squish, verse quote, gold contrast, hero spacing
-    injectCSS('mc-home',
-      '#mc .scr,#mc .goldtext{background-image:linear-gradient(165deg,#B0851C,#8A6A12 55%,#6E5410)!important;-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent!important}'+
-      '#mc .versebox{padding-top:42px!important}#mc .versebox .mk{line-height:1!important}#mc .versebox .mk.o{top:10px!important;left:16px!important}#mc .versebox .mk.c{bottom:2px!important}'+
-      '#mc .spk .ph{height:0!important;padding-bottom:128%!important;position:relative!important;overflow:hidden!important}#mc .spk .ph img{position:absolute!important;top:0!important;left:0!important;width:100%!important;height:100%!important;object-fit:cover!important;object-position:50% 16%!important}'+
-      '@media(max-width:780px){#mc .hero{overflow:visible!important}#mc .hero .wrap{padding-top:40px!important}#mc .scr{line-height:1.35!important;margin-bottom:12px!important;padding-bottom:6px!important}#mc .yr{line-height:1.2!important;margin-top:4px!important;padding-bottom:8px!important}}'+
-      '#mc .tiers .price{font-family:Anton,sans-serif!important;font-size:2.15rem!important;font-weight:400!important;color:#156B6F!important;font-style:normal!important;letter-spacing:.02em!important}#mc .tiers .price .mcvip{display:block;font-family:Inter,sans-serif;font-size:.64rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#9B1762;margin-top:6px}');
+    // mc-moment-legible + mc-home CSS REMOVED 2026-07-31: they styled the #mc injected homepage,
+    // which is now fully native (injector retired).
     // HERO CTA (2026-07-27). The native hero had a "Grab Your Tickets" button, but it sits at
     // grid-area 32/3/34/9 which is outside the section's row count, so Squarespace collapses it to
     // 0x0 (visibility:hidden, inherited from its .fe-block wrapper). Repositioning it needs a

@@ -15,9 +15,7 @@ const sha = (process.argv[2] || execSync('git rev-parse HEAD', { cwd: repoDir })
 if (!/^[0-9a-f]{40}$/.test(sha)) { console.error('need full 40-char sha'); process.exit(1); }
 
 // path(s) -> page injector. mc-pagefix.js loads on every page.
-const ROUTES = [
-  [['/', '/moreconference'], 'mc-inject.js'],
-];
+const ROUTES = [];
 const FILES = ['mc-pagefix.js', ...ROUTES.map(r => r[1])];
 
 const sri = {};
