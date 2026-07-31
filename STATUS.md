@@ -1,9 +1,28 @@
 # MORE 2027 — project status
-**Last verified: 2026-07-27.** Live health check: **20/20 clean** (10 pages x desktop + mobile):
-no wrong dates, no bad phone number, no horizontal overflow, no broken images, no JS errors.
-Live pin: `f93c459`. Read this file first; the others are detail.
+**Last verified: 2026-07-31.** FULL NATIVE MIGRATION COMPLETE: all 9 injected pages are now
+native Squarespace content Teri can edit AND drag. Live pin: `3df67f1` (loader now ships ONLY
+mc-pagefix.js: a11y + header scrim + homepage hero CTA overlay). Final regression: 20/20 clean
+(10 pages x desktop + mobile): 0 injectors, 0 stale 2026/guest refs, 0 console errors, 0 overflow.
+Countdown lives in a native movable CODE BLOCK on the homepage (target Aug 20). Footer newsletter
+"August 20" is native (pagefix footer matcher deleted). Read this file first; details below are
+historical.
 
----
+## MIGRATION NOTES (2026-07-31 overnight)
+- Flipped native: our-story, blooming-boutique, sponsors, volunteer, faqs, speakers,
+  mission-purpose, tickets, homepage. mc-inject/mc-speakers/mc-faq/etc. are retired (files kept
+  in repo for reference; no page loads them).
+- Speakers: 2027 lineup native on desktop AND mobile (old Lisa/Masey/Meredith photo blocks
+  replaced or deleted; mobile-only duplicates removed).
+- FAQ: Meet & Greet section rewritten (JJ Friday included; Annie F. Downs + Sheila Walsh Saturday
+  raffle + disclaimer), Meredith photo/Spotify removed, worship leader name removed (TBA).
+- Tickets/Mission/Homepage rebuilt as native sections (spec-correct ticket types, NO Friday-only
+  ticket, waitlist note). New sections use theme LIGHTEST 2 (white-bold).
+- Remaining code on Teri pages (flagged TODO in mc-pagefix.js): homepage hero CTA overlay, kept
+  because the native hero button is orphaned at grid-area 32/3/34/9. One fluid-engine drag by a
+  human fixes it; then delete that injection.
+- Known visual simplification: homepage speaker carousel / photo band / tier cards became
+  text-first native sections. All copy preserved; Teri can re-add galleries natively.
+
 
 ## 1. NEXT UP (in priority order)
 
